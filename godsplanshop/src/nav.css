@@ -1,0 +1,289 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.free
+{
+    padding: 10px 30px;
+    width: 100%;
+    background: #010f1c;
+    display: flex;
+}
+.free .icon
+{
+    color: #f3b123;
+    font-size: 32px;
+}
+.free p 
+{
+    margin-left: 10px;
+    color:  #fff;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.free span
+{
+    color: #f3b123;
+}
+.main-header img 
+{
+    width: 50px;
+    height: 60px;
+}
+.main-header
+{
+    padding: 30px 40px;
+    width: 100%;
+    border-bottom: 1px solid #000000;
+}
+.main-header .container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main-header .container .search_box
+{
+    left: 10px;
+}
+.main-header .container .search_box input 
+{
+    outline: none;
+    padding: 10px 30px;
+    border: 1px solid  #769CFF;
+    width: 300px;
+    color: #010f1c;
+    border-radius: 5px 0 0 5px;
+}
+.main-header .container .search_box button
+{
+    border: 3px solid #769CFF;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #769CFF;
+    color: #ecf2f7;
+    border-radius: 0 5px 5px 0;
+    font-size: 12px;
+    margin-right: 5px;
+}
+.main-header .container .search_box .search-result
+{
+    width: 300px;
+}
+.main-header .container .search_box .search-result div
+{
+    padding: 10px 25px;
+    background-color: white;
+    position: absolute;
+    border: 1px solid #0989ff;
+    width: 300px;
+}
+.main-header .container .icon
+{
+    display: flex;
+}
+.main-header .container .icon .account
+{
+    display: flex;
+    margin-right: 20px;
+}
+.main-header .container .icon .account p
+{
+    padding-top: 3px;
+}
+
+.main-header .container .icon .user_icon
+{
+    margin-right: 10px;
+    font-size: 22px;
+    color: #769CFF;
+    cursor: pointer;
+}
+.main-header .container .icon .link
+{
+    display: flex;
+    margin-right: 5px;
+    margin-right: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #769CFF;
+}
+.main-header .container .icon .productsNumber
+{
+    height: 12px;
+    width: 12px;
+    border-radius: 999px;
+    top: 0;
+    right: 10;
+    background-color: #810404;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-header .container .icon .buttonCart
+{
+    display: flex;
+    
+}
+.main-header .container .icon .buttonCart .close
+{
+    display: flex;
+    margin-right: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #810404;
+    border: none;
+    background-color: white;
+    position: fixed;
+    z-index: 2;
+    border-radius: 999px;
+}
+.main-header .container .icon .cart
+{
+    position: fixed;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 350px;
+    background-color: #5d5353;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    right: 35px;
+}
+.main-header .container .icon .cart .headercart
+{
+    padding-left: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.main-header .container .icon .cart .cartVacio
+{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.main-header .container .icon .cart .total
+{
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 18px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.main-header .container .icon .cart .total span
+{
+    color: #0bb45f;
+}
+.main-header .container .icon .cart .productsContainer
+{
+    max-height: 200px;
+    overflow-y: scroll;
+    margin-top: 5px;
+}
+
+::-webkit-scrollbar
+{
+    -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical
+{
+    width: 3px;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: #797979;
+    border-radius: 20px;
+}
+
+
+.header
+{
+    width: 100%;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.header .container 
+{
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+}
+.header .container .nav ul
+{
+    display: flex;
+}
+.header .container .nav ul li 
+{
+    margin-left: 20px;
+    list-style: none;
+}
+.header .container .nav ul li .link 
+{
+    text-decoration: none;
+    color: #010f1c;
+    transition: 0.5s;
+}
+.header .container .nav ul li .link:hover
+{
+    color: #0989ff;
+}
+.header .container .authorized
+{
+    margin-right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.header .container .authorized .logout
+{
+    display: flex;
+    margin-right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    color: #810404;
+}
+.header .container .authorized .logout p
+{
+    font-size: 12px;
+    margin-right: 10px;
+    margin-top: 4px;
+    color: #810404;
+}
+.header .container .authorized .login
+{
+    display: flex;
+    margin-right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    color: #000000;
+    text-decoration: none;
+}
+.header .container .authorized .login :hover{
+    color: #769CFF;
+    transition: 0.5s;
+
+}
+
+
+.header .container .authorized .login p
+{
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 4px;
+    color: #000000;
+}
+
+

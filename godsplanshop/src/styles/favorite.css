@@ -1,0 +1,73 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.favoriteContainer
+{
+   right: 0;
+}
+.favoriteContainer .title
+{
+    margin-top: 50px;
+    text-align: center;
+    color: #769CFF;
+    margin-bottom: 50px;
+}
+.favoriteContainer .contant
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.favoriteContainer .contant .favorite_item
+{
+    padding: 10px 20px;
+    overflow: hidden;
+    width: 280px;
+    height: 370px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.favoriteContainer .contant .favorite_item:hover
+{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-color: #0d4508;
+}
+.favoriteContainer .contant .favorite_item .img_box
+{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e2e0e0;
+}
+
+.favoriteContainer .contant .favorite_item .img_box img{
+    width: 200px;
+    height: 235px;
+}
+.favoriteContainer .contant .favorite_item .detail
+{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.favoriteContainer .contant .favorite_item .detail h3
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d4508;
+}
+.favoriteContainer .contant .favorite_item .close button
+{
+    padding-top: 20px;
+    border: none;
+    background-color: #fff;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+}
+

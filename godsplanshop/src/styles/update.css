@@ -1,0 +1,25 @@
+.update-form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+.update-form input
+{
+    width: 250px;
+    padding: 10px;
+    border: 1px solid grey;
+    margin-left:40%;
+}
+.update-form .update
+{
+    width: 250px;
+    padding: 10px;
+    border: none;
+    margin-left:40%;
+    background-color: rgba(7, 93, 221, 0.626);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
