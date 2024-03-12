@@ -25,10 +25,12 @@ function Register() {
   }
   return (
     <>
+    <div className='loginContainer'>
       <div className='register'>
         <div className='container-register'>
         <div className='info'>
-          <h1>Registrate</h1>
+          <h1>Registrate!!</h1>
+          <p>Enterate de todas las novedades que tenemos para tí</p>
         </div>
         <form onSubmit={handleSubmit}> 
             <label className='cont' htmlFor='username'>Nombre</label>
@@ -49,6 +51,10 @@ function Register() {
         </form>
       </div>
       </div>
+      <div className='img-pj'>
+        <img className='GOD' src='../img/pejota.png' alt='logo'></img>
+      </div>
+    </div>
     </>
   )
 }

@@ -72,7 +72,8 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
                                 <h4>DROP: {product.categories_id_categories}</h4>
                                 <h2>{product.title}</h2>
                                 <p>{product.description}</p>
-                                <h3><span>$</span>{product.price}</h3>
+                                <h4>TALLA ÚNICA</h4>
+                                <h3>${product.price}</h3>
                                 <button onClick={() => handleAddToCart(product)}>Añadir al carrito</button>
                             </div>
                         </div>

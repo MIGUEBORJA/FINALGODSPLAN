@@ -79,16 +79,16 @@ const Nav = () => {
   return (
     <>
         <div className='all-nav'>
-        <div className='free'>
+        {/* <div className='free'>
             <div className='icon'>
               <FaTruckArrowRight/>
             </div>
              <p>Envío <span>GRATIS</span> despúes de 3 productos !!</p>
-     </div>
+     </div> */}
      <div className='main-header'>
         <div className='container'>
             <div className='logo'>
-                <img src='../img/logod.png' alt='logo'></img>
+                <img className='logoimg' src='../img/logod.png' alt='logo'></img>
             </div>
            
             <div className='search_box'>

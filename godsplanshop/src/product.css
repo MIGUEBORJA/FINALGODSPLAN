@@ -168,14 +168,15 @@
 }
 .product_detail .container_detail
 {
-    margin-top: 2.7%;
+    margin-top: 9.5%;
     margin-left: 10%;
     width: 1000px;
     height: 500px;
-    background-color: #769CFF;
+    background-color: #c3bebe;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
 }
 .product_detail .container_detail .productbox .img-box img
 {

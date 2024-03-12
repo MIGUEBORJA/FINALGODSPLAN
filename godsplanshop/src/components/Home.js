@@ -108,9 +108,9 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
                   <img src={curElm.Img} alt={curElm.Title}></img>
                 </div>
                  <div className='detail'>
-                  <p>{curElm.Cat}</p>
+                  <p>{curElm.Price}</p>
                   <h3>{curElm.Title}</h3>
-                  <h4>{curElm.Price}</h4>
+                  <h4>{curElm.Cat}</h4>
                  </div>
                </div>
               )

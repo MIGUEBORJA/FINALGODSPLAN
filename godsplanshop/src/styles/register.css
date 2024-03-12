@@ -1,3 +1,13 @@
+.loginContainer
+{
+    display: flex;
+    background-color: black;
+}
+.loginContainer .img-pj
+{
+    padding-left: 150px;
+    padding-top: 40px;
+}
 .register
 {
     background-color: black; 

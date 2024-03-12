@@ -152,7 +152,10 @@
 .about .container .box .detail p {
     color: #494c4d;
 }
-
+.about .Link
+{
+    text-decoration: none;
+}
 .product .container .box .img_box img {
     width: 200px;
     height: 235px;

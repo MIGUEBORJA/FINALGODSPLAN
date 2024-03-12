@@ -24,6 +24,7 @@ const Login = () => {
   }
   return (
     <>
+    <div className='loginContainer'>
      <div className='register'>
         <div className='container-register'>
         <div className='info'>
@@ -44,6 +45,10 @@ const Login = () => {
         </form>
         </div>
       </div>
+      <div className='img-pj'>
+        <img className='GOD' src='../img/pejota.png' alt='logo'></img>
+      </div>
+    </div>
     </>
   )
 }
