@@ -5,7 +5,7 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
-.footer .container .about .logo img
+.footer .container .aboutfoot .logo img
 {
     width: 100px;
     height: 100px;
@@ -22,22 +22,24 @@
     display: flex;
     justify-content: space-between;
 }
-.footer .container .about
+.footer .container .aboutfoot
 {
     max-width: 30%;
+    margin-left: 100px;
+    margin-top: 50px;
 }
-.footer .container .about .detail p
+.footer .container .aboutfoot .detail p
 {
     margin-top:20px;
     font-size: 16px;
     color: #707274;
 }
-.footer .container .about .detail .icon
+.footer .container .aboutfoot .detail .icon
 {
     margin-top: 20px;
     display: flex;
 }
-.footer .container .about .detail .icon li
+.footer .container .aboutfoot .detail .icon li
 {
     margin-left: 20px;
     list-style: none;
@@ -49,7 +51,7 @@
     border-radius: 5px;
     background-color: #021526;
 }
-.footer .container .about .detail .icon li:hover
+.footer .container .aboutfoot .detail .icon li:hover
 {
     background-color: #fff;
     color: #021526;

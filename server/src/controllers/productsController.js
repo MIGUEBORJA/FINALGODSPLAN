@@ -11,7 +11,7 @@ const createProduct = (req, res) => {
             req.body.description,
             req.body.price,
             req.file.filename,
-            req.body.categories_id_categories
+            req.body.categories_id_categories,
         ]; 
 
         db.query(sql, [values], (err, data) => {

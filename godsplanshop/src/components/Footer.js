@@ -2,32 +2,24 @@ import React from 'react'
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
+import { FaTruckArrowRight } from "react-icons/fa6";
 
 import '../footer.css';
 
 
 const Footer = () => {
-//   const [authAdm, setAuthAdm] = useState(false); 
-
-//   axios.defaults.withCredentials = true; 
-
-//   useEffect(() => {
-//     axios.get('http://localhost:5000')
-//     .then(res => {
-//       if(res.data.Status === "Success") {
-//         setAuthAdm(true)
-//       }else{
-//         setAuthAdm(false)
-//       }
-//     })
-//     .then(err => console.log(err)); 
-// }, [])
 
   return (
     <>
+    <div className='free'>
+        <div className='icon'>
+           <FaTruckArrowRight/>
+        </div>
+        <p>Envío <span>GRATIS</span> despúes de 3 productos !!</p>
+    </div> 
       <div className='footer'>
         <div className='container'>
-            <div className='about'>
+            <div className='aboutfoot'>
                 <div className='logo'>
                     <img src='../logoGP.png' alt='logo'></img>
                 </div>

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { FaTruckArrowRight } from "react-icons/fa6";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -79,18 +78,11 @@ const Nav = () => {
   return (
     <>
         <div className='all-nav'>
-        {/* <div className='free'>
-            <div className='icon'>
-              <FaTruckArrowRight/>
-            </div>
-             <p>Envío <span>GRATIS</span> despúes de 3 productos !!</p>
-     </div> */}
-     <div className='main-header'>
+          <div className='main-header'>
         <div className='container'>
             <div className='logo'>
                 <img className='logoimg' src='../img/logod.png' alt='logo'></img>
             </div>
-           
             <div className='search_box'>
                 <input type='text' placeholder='Busca tú producto' autoComplete='off' onChange={e => handleFilter(e.target.value)}></input>
                 <button><FaSearch/></button>
@@ -139,7 +131,10 @@ const Nav = () => {
                                 </div>
                             )}
 
-                            <h2 className='total'><span>$</span>{total}</h2>
+                            <div className='cartfoot'>
+                                <h2 className='total'><span>$</span>{total}</h2>
+                                <Link to='/checkoutform'><button className='check'>Pagar</button></Link>
+                            </div>
                         </div>
                     )}   
             </div>

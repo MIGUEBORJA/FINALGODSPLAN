@@ -103,17 +103,19 @@
 {
     list-style: none;
     padding:10px 10px;
-    color: #e2e0e0;
+    color: #769CFF;
     cursor: pointer;
-    background-color: #010f1c;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: 0.5s;
     font-size: 15px;
+    border-radius: 999px;
 }
 .products .container .productbox .content .box .icon ul li:hover
 {
-    background-color: #2EA726;
-    color: #010f1c;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.products .container .productbox .content .box .icon ul .heart:hover
+{
+    color: #920101;
 }
 .products .container .productbox .content .box .detail
 {

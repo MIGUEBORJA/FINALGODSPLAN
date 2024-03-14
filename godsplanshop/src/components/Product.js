@@ -102,8 +102,8 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
                 <div className='content'>
                 {
                     products.map((product, i) => (
-                    <div key={i} className='box' onClick={() => view(product)}>
-                        <div className='img_box'>
+                    <div key={i} className='box'>
+                        <div className='img_box'  onClick={() => view(product)}>
                             {product.image && <img src={`http://localhost:5000/images/`+product.image} alt={product.title}></img>}
                         </div>
                         {
@@ -124,7 +124,7 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
                             <ul>
                                 <li onClick={() => handleAddToCart(product)}><HiShoppingBag/></li>
                                 <li onClick={() => view(product)} ><IoIosEye/></li>
-                                <li onClick={() => addtofavorite(product)}><FaRegHeart/></li>
+                                <li className='heart' onClick={() => addtofavorite(product)}><FaRegHeart/></li>
                           </ul> 
                         </div>
                   </div>   
