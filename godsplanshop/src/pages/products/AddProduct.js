@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/addproduct.css';
 
 const AddProduct = () => {
   const [product,setProduct] = useState({
@@ -63,11 +64,12 @@ const AddProduct = () => {
   console.log(product); 
   return (
     <>
-    <form encType="multipart/form-data" onSubmit={handleClick} className='update-form'>
-      <h1 className='title'>REGISTRAR UN NUEVO PRODUCTO!!</h1> 
-      <input type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} />
-      <input type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
-      <input type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} />
+    <div className='productForm'>
+      <h1 className='title'>Publicar Producto!</h1> 
+    <form encType="multipart/form-data" onSubmit={handleClick} className='addForm'>
+      <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} />
+      <textarea className='textarea' type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
+      <input  className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} />
       <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange}>
         <option value={0} disabled >Selecciona una categoría</option>
         {
@@ -77,8 +79,9 @@ const AddProduct = () => {
         }
       </select>
       <input type='file' id='image' name='image' onChange={handleChange} />
-      <button  type='submit' onClick={handleClick}>Agregar</button>
+      <button className='btnSumbit' type='submit' onClick={handleClick}>Agregar</button>
     </form>
+    </div>
     </>
   )
 }

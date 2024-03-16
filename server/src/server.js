@@ -12,7 +12,7 @@ import checkoutRoutes from "./routes/checkoutRoutes.js";
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
-    accessToken: "TEST-4081095028968996-021722-b565de2ed3e423427c49ac078386e7d4-1673313641",
+    accessToken: "APP_USR-4081095028968996-021722-1a76f98adf8c97beda0722336cdb7933-1673313641",
 });
 
 const app = express(); 

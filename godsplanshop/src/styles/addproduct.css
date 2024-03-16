@@ -1,0 +1,55 @@
+.productForm
+{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.productForm .title
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.productForm .addForm
+{
+    border: 1px solid #ccc;
+    width: 25%;
+    margin-left: 37%;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+}
+.productForm .addForm .input
+{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+.productForm .addForm .textarea
+{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    resize: none;
+}
+.productForm .addForm .btnSumbit
+{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 0;
+    margin-top: 12px;
+    background: #1668c4;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.productForm .addForm .btnSumbit:hover
+{
+    background: #4A88F4;
+}
+

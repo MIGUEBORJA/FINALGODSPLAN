@@ -7,7 +7,7 @@ import { CartContext } from '../context/CartContext';
 const CheckoutForm = () => {
   const { cartItems } = useContext(CartContext); 
   const [preferenceId, setPreferenceId] = useState([])
-    initMercadoPago('TEST-28ffec4a-1442-4a57-aa57-2fc672ebd8f7', {
+    initMercadoPago('APP_USR-d469ee1a-21f8-43b3-bc87-21d5c09b9777', {
     locale: "es-CO",
   });
   const total = cartItems.reduce((acc, product) => acc + (product.price * product.amount), 0);
