@@ -1,21 +1,35 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
 import '../styles/checkout.css'; 
 import axios from 'axios';
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+import { CartContext } from '../context/CartContext';
 
 const CheckoutForm = () => {
-  const [preferenceId, setPreferenceId] = useState(null)
-    initMercadoPago('YOUR_PUBLIC_KEY', {
+  const { cartItems } = useContext(CartContext); 
+  const [preferenceId, setPreferenceId] = useState([])
+    initMercadoPago('TEST-28ffec4a-1442-4a57-aa57-2fc672ebd8f7', {
     locale: "es-CO",
   });
+  const total = cartItems.reduce((acc, product) => acc + (product.price * product.amount), 0);
+  const title = cartItems.length === 0 ? "" : cartItems[0].title;
+  const totalQuantity = cartItems.reduce((acc, product) => 0 + product.amount, 0);
 
-  const createPreference = async () => {
+ const createPreference = async () => {
+  if (cartItems.length === 0) {
+    return <p>El carrito está vacío</p>;
+  }
     try {
+      const itemsData = cartItems.map((product) => ({
+        id: product.id_product,
+        title: product.title,
+        quantity: product.amount,
+        unit_price: product.price,
+      }));
       const response = await axios.post("http://localhost:5000/create_preference", {
-        title: "Bananita contenta",
-        quantity: 1,
-        price: 100,
+        title,
+        quantity: totalQuantity,
+        unit_price: total,
+        items: itemsData,
       });
 
       const { id } = response.data;
@@ -24,6 +38,12 @@ const CheckoutForm = () => {
       console.log(error)
     }
   }
+  const handleBuy = async () => {
+    const id = await createPreference(); 
+    if(id) {
+      setPreferenceId(id); 
+    }
+  };
   const [order, setOrder] = useState({
     client_name: "",
     client_address: "",
@@ -53,18 +73,13 @@ const CheckoutForm = () => {
     }
   }
 
-  const handleBuy = async () => {
-    const id = await createPreference(); 
-    if(id) {
-      setPreferenceId(id); 
-    }
-  }
+  
 
   return (
     <>
         <div className='container-checkout'>
             <h1 className='title'>Datos de envío</h1>
-         <form className='check-form' onSubmit={handleClick}> 
+         <form className='check-form'> 
             <label className='cont' htmlFor='client_email'>Contacto</label>
            <input className='controls' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
             onChange={handleChange}></input>
@@ -87,10 +102,10 @@ const CheckoutForm = () => {
             <label htmlFor='client_contact'></label>
             <input className='controls' type='number' name='client_contact' autoComplete='off' placeholder='Teléfono'
             onChange={handleChange}></input>
-             <button  type='submit' className='check'>Guardar formulario</button>
-             <button onClick={handleBuy} className='check'>Finalizar Compra</button>
-             {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />}
+             <button onSubmit={handleClick} type='submit' className='check'>Guardar formulario</button>
         </form>
+        <button onClick={handleBuy} className='finishBtn'>haz click aquí</button>
+        {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} />}
         </div>
     </>
   )

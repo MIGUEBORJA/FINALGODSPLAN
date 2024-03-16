@@ -12,7 +12,7 @@ import checkoutRoutes from "./routes/checkoutRoutes.js";
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
-    accessToken: "",
+    accessToken: "TEST-4081095028968996-021722-b565de2ed3e423427c49ac078386e7d4-1673313641",
 });
 
 const app = express(); 
@@ -33,8 +33,9 @@ app.post("/create_preference", async (req, res) => {
             items: [
                 {
                     title: req.body.title,
-                    quantity: Number(req.body.quantity),
-                    unit_price: Number(req.body.price),
+                    quantity:Number(req.body.quantity),
+                    unit_price: Number(req.body.unit_price),
+                    items: req.body.items,
                     currency_id: "COP",
                 },
             ],

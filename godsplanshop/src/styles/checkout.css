@@ -71,3 +71,17 @@
     margin-top: 8px;
     height: 30px;
 }
+.container-checkout .finishBtn
+{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #769CFF;
+    color: #fff;
+    margin-top: 8px;
+    height: 30px;
+}
