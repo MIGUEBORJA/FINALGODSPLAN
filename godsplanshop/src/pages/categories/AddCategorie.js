@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom';
+import '../../styles/category.css'; 
 
 const AddCategorie = () => {
 
@@ -53,10 +54,11 @@ const AddCategorie = () => {
   } 
   return (
     <>
-      <form onSubmit={handleClick} className='update-form'>
+    <div className='categoryForm'>
         <h1 className='title'>AGREGA UNA NUEVA CATEGORÍA!</h1> 
-        <input  type='text' id='name' name='name' placeholder='Nombre de la categoría' onChange={handleChange} />
-        <button  type='submit' >Agregar nueva categoría</button>
+      <form onSubmit={handleClick} className='addCategory'>
+        <input className='input' type='text' id='name' name='name' placeholder='Nombre de la categoría' onChange={handleChange} />
+        <button className='btnSubmit'  type='submit' >Agregar nueva categoría</button>
      </form>
 
      <h1>Listado de Categorías</h1>
@@ -79,6 +81,7 @@ const AddCategorie = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </>
   )
 }

@@ -117,6 +117,14 @@
     cursor: pointer;
     color: #769CFF;
 }
+.main-header .container .icon .heart{
+    display: flex;
+    margin-right: 5px;
+    margin-right: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #dd3333;
+}
 .main-header .container .icon .productsNumber
 {
     height: 12px;

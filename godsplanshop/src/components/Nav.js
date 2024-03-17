@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaHeartCircleCheck } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { GiExitDoor } from "react-icons/gi";
-import { GiEntryDoor } from "react-icons/gi";
-import { FaSearch } from "react-icons/fa";
+import { FaUser,FaShoppingCart, FaSearch } from "react-icons/fa";
+import { GiExitDoor, GiEntryDoor } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import '../nav.css'; 
 import axios from 'axios';
@@ -106,7 +103,7 @@ const Nav = () => {
                         </div>
                     )
             } 
-                    <Link to="/favorite" className='link'><FaHeartCircleCheck/></Link>
+                    <Link to="/favorite" className='heart'><FaHeartCircleCheck/></Link>
                     <div onClick={() => {
                         setCartOpen(!cartOpen);
                     }} className='buttonCart'>

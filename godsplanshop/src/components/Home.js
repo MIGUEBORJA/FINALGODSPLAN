@@ -46,7 +46,7 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
       <div className='top_banner'>
         <div className='container'>
             <div className='detail'>
-                <h2>MAKE IT HAPPEN, <span>MAKE IT REAL.</span></h2>
+                <h2 className='titleDiv'>MAKE IT HAPPEN, <span>MAKE IT REAL.</span></h2>
             </div>
             <div className='img_box_Slider'>
                 <img src='../img/2-2.png' alt='sliderimg'></img>

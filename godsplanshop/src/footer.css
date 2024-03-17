@@ -81,6 +81,11 @@
     transition: 0.5s;
     cursor: pointer;
 }
+.footer .container .account ul li a
+{
+    text-decoration: none;
+    color: #dce3ea;
+}
 .footer .container .page ul li .adm
 {
     color: #dce3ea;

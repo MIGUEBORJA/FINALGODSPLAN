@@ -14,6 +14,7 @@ import UserList from './pages/users/UserList.js'
 import UpdateUser from './pages/users/UpdateUser.js'
 import Favorite from './components/favorite.js'
 import CheckoutForm from './pages/CheckoutForm.js'
+import About from './pages/About.js'
 
 
 const Rout = ({product, setProduct, detail, view, close, setClose, favorite, setFavorite, addtofavorite}) => {
@@ -34,6 +35,7 @@ const Rout = ({product, setProduct, detail, view, close, setClose, favorite, set
         <Route path='/dashboard/userslist' element={<UserList/>}/>
         <Route path='/dashboard/updateuser/:id' element={<UpdateUser/>}/> 
         <Route path='/checkoutform'  element={<CheckoutForm/>} />
+        <Route path='/about' element={<About/>}/>
       </Routes>
     </>
   )

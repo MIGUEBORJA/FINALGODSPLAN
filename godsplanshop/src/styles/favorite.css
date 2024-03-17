@@ -3,6 +3,27 @@
     margin: 0;
     padding: 0;
 }
+
+.empty{
+    text-align: center;
+
+}
+.emptycartbtn{
+    display: inline-block;
+    padding: 100px 60px;
+    border: 1px solid black;
+    color: #000000; 
+    text-decoration: none; 
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-left: 43%;
+    margin-bottom: 50px;
+    transition: 0.5s;
+}
+.emptycartbtn:hover {
+    background-color: #c4c6c7; 
+}
+
 .favoriteContainer
 {
    right: 0;
