@@ -12,8 +12,8 @@
 .productForm .addForm
 {
     border: 1px solid #ccc;
-    width: 25%;
-    margin-left: 37%;
+    width: 40%;
+    margin-left: 400px;
     padding: 20px;
     display: flex;
     flex-direction:column;
@@ -25,7 +25,11 @@
     margin-bottom: 20px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    font-size: 1rem;
+    border: thin solid #dedede;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin: 0 0 0.5rem 0;
 }
 .productForm .addForm .textarea
 {
@@ -36,6 +40,7 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     resize: none;
+    font-size: 1rem;
 }
 .productForm .addForm .btnSumbit
 {
@@ -51,5 +56,50 @@
 .productForm .addForm .btnSumbit:hover
 {
     background: #4A88F4;
+}
+.selectDiv
+{
+    display: flex;
+}
+.productForm .addForm label
+{
+    padding: 0.5rem;
+    margin: 0 0 0.5rem 0;
+    display: inline-block;
+    color: #444;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+.productForm .addForm select
+{
+    border: thin solid #dedede;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin: 0 0 0.5rem 0;
+    display: block;
+    width: 100%;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: transparent;
+    cursor: pointer;
+}
+.productForm .addForm .fileInput
+{
+    display: none;
+}
+.productForm .addForm .labelFile{
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: coral;
+    text-align: center;
+    padding: 15px 40px;
+    font-size: 15px;
+}
+.productForm .addForm .labelFile:hover
+{
+    background-color: rgb(243, 87, 31);
 }
 

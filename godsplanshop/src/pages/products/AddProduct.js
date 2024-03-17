@@ -70,15 +70,17 @@ const AddProduct = () => {
       <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} />
       <textarea className='textarea' type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
       <input  className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} />
+      <label htmlFor='categories_id_categories'>Categorías</label>
       <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange}>
-        <option value={0} disabled >Selecciona una categoría</option>
+        <option value="" >Elige una categoría</option>
         {
           categories.map(category => (
             <option key={category.id_categories} value={category.id_categories}>{category.name}</option>
           ))
         }
       </select>
-      <input type='file' id='image' name='image' onChange={handleChange} />
+          <label htmlFor='image' className='labelFile'>Imagen del producto</label>
+          <input type='file' id='image' name='image' onChange={handleChange} className='fileInput' />
       <button className='btnSumbit' type='submit' onClick={handleClick}>Agregar</button>
     </form>
     </div>
