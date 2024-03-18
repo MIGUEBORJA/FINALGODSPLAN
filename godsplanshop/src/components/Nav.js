@@ -166,7 +166,7 @@ const Nav = () => {
             <div className='authorized'> 
                 {
                     auth ? (
-                    <button className='logout' onClick={handleDelete}><p>Cierra Sesión</p><GiExitDoor/></button> 
+                    <button className='logout' onClick={handleDelete}><GiExitDoor/></button> 
                     ):(
                     <Link to='/login' className='login'><p>Inicia Sesión</p><GiEntryDoor/></Link>
                     )

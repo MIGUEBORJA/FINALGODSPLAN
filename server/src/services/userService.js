@@ -4,6 +4,12 @@ import bcrypt from 'bcrypt';
 const userService = {
   async registerUser(username, email, contact, password) {
     return new Promise((resolve, reject) => {
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!emailPattern.test(email)) {
+        reject({ Error: 'El formato del correo electrónico es incorrecto.' });
+        return;
+      }
       if (!password) {
         reject({ Error: 'La contraseña no está definida.' });
         return;

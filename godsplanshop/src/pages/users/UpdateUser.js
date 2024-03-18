@@ -43,25 +43,28 @@ const UpdateUser = () => {
       };
     
       return (
-        <form onSubmit={handleSubmit}>
+        <div className='categoryForm'>
+            <h1 className='title'>Edita un usuario</h1> 
+          <form onSubmit={handleSubmit} className='addCategory'>
           <label>
-            Name:
-            <input type="text" name="username" value={user.username} onChange={handleChange} />
+            Nombre de Usuario:
+            <input type="text" name="username" value={user.username} onChange={handleChange} className='input'/>
           </label>
           <label>
             Email:
-            <input type="text" name="email" value={user.email} onChange={handleChange} />
+            <input type="text" name="email" value={user.email} onChange={handleChange} className='input'/>
           </label>
           <label>
             Contacto:
-            <input type="text" name="contact" value={user.contact} onChange={handleChange} />
+            <input type="text" name="contact" value={user.contact} onChange={handleChange} className='input'/>
           </label>
           <label>
-            Role:
-            <input type="text" name="role" value={user.role} onChange={handleChange} />
+            Rol:
+            <input type="text" name="role" value={user.role} onChange={handleChange} className='input'/>
           </label>
-          <button type="submit">Actualizar Usuario</button>
+          <button className='btnSubmit' type="submit">Actualizar Usuario</button>
         </form>
+        </div>
       );
 }
 

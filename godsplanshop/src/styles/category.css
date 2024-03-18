@@ -13,7 +13,7 @@
 {
     border: 1px solid #ccc;
     width: 40%;
-    margin-left: 420px;
+    margin-left: 30%;
     padding: 20px;
     display: flex;
     flex-direction:column;
@@ -40,5 +40,67 @@
     background: #1668c4;
     border: none;
     color: #fff;
+    cursor: pointer;
+}
+.categoryForm .MainCategories
+{
+    width: 40%;
+    margin: 50px auto;
+    margin-left: 30%;
+}
+.categoryForm .MainCategories h1
+{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.categoryForm .MainCategories table
+{
+    background-color: #ccc;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+.categoryForm .MainCategories table th, td
+{
+    padding: 10px;
+}
+.categoryForm .MainCategories table thead
+{
+    background-color: #1668c4;
+    border-bottom: 2px solid #000;
+    color: white;
+}
+.categoryForm .MainCategories table tr:nth-child(even)
+{
+    background-color: darkgray;
+}
+tr:hover td{
+    background-color: #769CFF;
+    color: white;
+}
+.categoryForm .MainCategories table td .delete
+{
+    background: none;
+    border: none;
+}
+.categoryForm .MainCategories table td .icon, .icon2
+{
+    font-size: 20px;
+    cursor: pointer;
+}
+.categoryForm .MainCategories table td .icon
+{
+    color: #1668c4;
+}
+.categoryForm .MainCategories table td .icon2
+{
+    color: #de433b;
+}
+.categoryForm .MainCategories .excel
+{
+    background-color: #025f2b;
+    color: white;
+    padding: 5px 10px;
+    border: none;
     cursor: pointer;
 }

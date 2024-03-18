@@ -16,6 +16,7 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
     const [auth, setAuth] = useState(false); 
     const [isAdmin, setIsAdmin] = useState(false);
     const { addItemToCart } = useContext(CartContext);
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
         const fetchAllProducts = async () => {
@@ -54,6 +55,14 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
         addItemToCart(product);
     };  
 
+
+    const handleCategoryChange = (category) => {
+        console.log('Categoría seleccionada:', category);
+        setSelectedCategory(category);
+    };
+
+    const filteredProducts = selectedCategory === 'all' ? products : products.filter(product => product.categories_id_categories === selectedCategory);
+    console.log('Productos filtrados:', filteredProducts);
   return (
     <>
     {
@@ -91,17 +100,17 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
                 <div className='categories'>
                     <h3>Categorías</h3>
                     <ul>
-                        <li >Todos</li>
-                        <li >First Drop</li>
-                        <li >G-Drop</li>
-                        <li >Gorras</li>
+                        <li onClick={() => handleCategoryChange('all')}>Todos</li>
+                        <li onClick={() => handleCategoryChange(1)}>First Drop</li>
+                        <li onClick={() => handleCategoryChange(2)}>G-Drop</li>
+                        <li onClick={() => handleCategoryChange(3)}>Gorras</li>
                     </ul>
                 </div>
             </div>
             <div className='productbox'>
                 <div className='content'>
                 {
-                    products.map((product, i) => (
+                    filteredProducts.map((product, i) => (
                     <div key={i} className='box'>
                         <div className='img_box'  onClick={() => view(product)}>
                             {product.image && <img src={`http://localhost:5000/images/`+product.image} alt={product.title}></img>}

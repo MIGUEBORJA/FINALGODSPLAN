@@ -57,6 +57,7 @@ const AddProduct = () => {
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
       console.error("Detalles de la respuesta:", error.response.data);
+      alert(error.response.data);
     }
 }
 
@@ -67,11 +68,11 @@ const AddProduct = () => {
     <div className='productForm'>
       <h1 className='title'>Publicar Producto!</h1> 
     <form encType="multipart/form-data" onSubmit={handleClick} className='addForm'>
-      <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} />
+      <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} required/>
       <textarea className='textarea' type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
-      <input  className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} />
-      <label htmlFor='categories_id_categories'>Categorías</label>
-      <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange}>
+      <input  className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} required />
+      <label htmlFor='categories_id_categories' >Categorías</label>
+      <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange} required>
         <option value="" >Elige una categoría</option>
         {
           categories.map(category => (

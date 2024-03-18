@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/category.css'; 
+import { MdDelete } from "react-icons/md";
+import { HiPencilAlt } from "react-icons/hi";
 
 const AddCategorie = () => {
 
@@ -60,7 +62,7 @@ const AddCategorie = () => {
         <input className='input' type='text' id='name' name='name' placeholder='Nombre de la categoría' onChange={handleChange} />
         <button className='btnSubmit'  type='submit' >Agregar nueva categoría</button>
      </form>
-
+    <div className='MainCategories'>
      <h1>Listado de Categorías</h1>
       <table>
         <thead>
@@ -75,12 +77,13 @@ const AddCategorie = () => {
             <tr key={category.id_categories}>
               <td>{category.id_categories}</td>
               <td>{category.name}</td>
-              <td><button className='update'><Link to={`/dashboard/updatecategorie/${category.id_categories}`}>Update</Link></button></td>
-              <td> <button className='delete' onClick={() => handleDelete(category.id_categories)}>Delete</button></td>
+              <td><Link to={`/dashboard/updatecategorie/${category.id_categories}`}><HiPencilAlt className='icon'/></Link>
+              <button className='delete' onClick={() => handleDelete(category.id_categories)}><MdDelete className='icon2'/></button></td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
     </>
   )
