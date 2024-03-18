@@ -82,22 +82,22 @@ const CheckoutForm = () => {
         <form className='check-form'>
           <label className='cont' htmlFor='client_email'>Contacto</label>
           <input className='controls' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
-            onChange={handleChange}></input>
+            onChange={handleChange} required></input>
           <h3 className='h3'>Entrega</h3>
           <p className='inform'>(Solo envíos en el área metropólitana)</p>
           <label htmlFor='client_name'></label>
           <input className='controls' type='text' name='client_name' autoComplete='off' placeholder='Nombre Completo'
-            onChange={handleChange}></input>
+            onChange={handleChange} required></input>
           <label htmlFor='client_id'></label>
           <input className='controls' type='number' name='client_id' autoComplete='off' placeholder='Cédula'
-            onChange={handleChange}></input>
+            onChange={handleChange} required></input>
           <div className='address'>
             <label htmlFor='client_address'></label>
             <input className='controls-add' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
-              onChange={handleChange}></input>
+              onChange={handleChange} required></input>
             <label htmlFor='client_postal_code'></label>
             <input className='controls-add2' type='number' name='client_postal_code' autoComplete='off' placeholder='Código Postal'
-              onChange={handleChange}></input>
+              onChange={handleChange} required></input>
           </div>
           <label htmlFor='client_contact'></label>
           <input className='controls' type='number' name='client_contact' autoComplete='off' placeholder='Teléfono'

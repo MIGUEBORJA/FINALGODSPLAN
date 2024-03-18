@@ -91,7 +91,7 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
         </div>
       </div>
       <div className='product'>
-        <h2>Más Vendidos</h2>
+        <h2>Populares</h2>
         <div className='container'>
           {
             HomeProduct.map((curElm) => {

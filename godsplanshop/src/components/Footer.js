@@ -12,12 +12,6 @@ const Footer = () => {
 
   return (
     <>
-      <div className='free'>
-        <div className='icon'>
-          <FaTruckArrowRight />
-        </div>
-        <p>Envío <span>GRATIS</span> despúes de 3 productos !!</p>
-      </div>
       <div className='footer'>
         <div className='container'>
           <div className='aboutfoot'>
@@ -27,9 +21,9 @@ const Footer = () => {
             <div className='detail'>
               <p>Esta página ha sido desarrollada por RielesGvng-CODE | Miguel Borja - Jose Gaviria - Carlos Bénitez</p>
               <div className='icon'>
-                <li><FaFacebookSquare /></li>
-                <li><FaInstagram /></li>
-                <li><FaLink /></li>
+                <li><a href='https://www.instagram.com/godsplandrops/' target="_blank" rel="noopener noreferrer" className='mercadol'><FaInstagram /></a></li>
+                <li><a href='https://www.facebook.com/profile.php?id=61551365443324' target="_blank" rel="noopener noreferrer" className='mercadol'><FaFacebookSquare /></a></li>
+                <li><a href='https://linkfly.to/godsPlan' target="_blank" rel="noopener noreferrer" className='mercadol'><FaLink /></a></li>
               </div>
             </div>
           </div>

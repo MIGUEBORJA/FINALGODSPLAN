@@ -148,7 +148,7 @@ const Nav = () => {
                                     <Link to='/product' className='link'>Productos</Link>
                                 </li>
                                 <li>
-                                    <Link to='/about' className='link'>Acerca de</Link>
+                                    <Link to='/about' className='link'>Acerca</Link>
                                 </li>
                                 <li>
                                     <Link to='/contact' className='link'>Contactanos</Link>
@@ -157,7 +157,7 @@ const Nav = () => {
                                     isAdmin &&
                                     (
                                         <li>
-                                            <Link to='/dashboard' className='link'>Dashboard Admin</Link>
+                                            <Link to='/dashboard' className='link'>Dashboard</Link>
                                         </li>
                                     )
                                 }
@@ -166,7 +166,7 @@ const Nav = () => {
                         <div className='authorized'>
                             {
                                 auth ? (
-                                    <button className='logout' onClick={handleDelete}><p>Cierra Sesión</p><GiExitDoor /></button>
+                                    <button className='logout' onClick={handleDelete}><GiExitDoor/></button>
                                 ) : (
                                     <Link to='/login' className='login'><p>Inicia Sesión</p><GiEntryDoor /></Link>
                                 )

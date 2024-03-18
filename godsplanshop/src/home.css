@@ -1,18 +1,9 @@
-/* Estilos base */
-
 * {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
 }
-
-/* Estilos para pantallas grandes */
-.img_box img {
-    width: 500px;
-    height: 350px;
-}
-
 .top_banner {
     padding: 3rem 2,5rem;
     width: 100%;
@@ -30,17 +21,12 @@
     justify-content: space-between;
 }
 
-.top_banner .container .detail {
-    margin-top: 12%;
-    margin-left: 4rem;
+.top_banner .container .detail .titleDiv {
+    font-size: 6vw; /* Usamos vw en lugar de px para hacer el texto responsive */
+    color: #fff;
+    padding-top: 10%;
+    margin-left: 10% ;
 }
-
-    .top_banner .container .detail .titleDiv {
-        font-size: 6vw; /* Usamos vw en lugar de px para hacer el texto responsive */
-        color: #fff;
-        margin-bottom: 2vw; /* También puedes usar vw para el margen inferior */
-    }
-
 .top_banner .container .detail .link {
     padding: 10px 20px;
     text-decoration: none;
@@ -63,13 +49,12 @@
 }
 
 .img_box_Slider img {
-    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
-    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
-    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
-    margin-right: 15%; /* Puedes ajustar el margen derecho según sea necesario */
-
+    width: 100%; 
+    margin-right: 15%; 
 }
-
+.img_box_Slider{
+    margin-right: 100px;
+}
 .product_type {
     padding: 30px 40px;
     width: 100%;
@@ -125,12 +110,12 @@
 }
 
 .about .container .box {
-    padding: 20px; /* Ajustar el padding interno */
+    padding: 20px; 
     background: #cddbdc;
-    width: 16em; /* Ancho de cada caja, con margen derecho */
-    margin-bottom: 20px; /* Espacio entre las cajas */
+    width: 16em; 
+    margin-bottom: 20px; 
     border-radius: 10px;
-
+    display: flex;
 }
 .about .container .box:hover{
     background: #acb8b9;
@@ -140,7 +125,6 @@
 .about .container .box .icon {
     color: #010f1c;
     font-size: 32px;
-    margin-top: 10px;
 }
 
 .about .container .box .detail {
@@ -518,10 +502,16 @@
         height: 250px;
     }
 }
-
+@media screen and (max-width:768px){
+    .top_banner .container .detail {padding-top: 30px; padding-left: 30px;}
+    .about .container {margin-left: 27%; }
+}
 /* Estilos para pantallas pequeñas */
 @media screen and (max-width: 320px) {
 
+    .top_banner .container .detail{
+        margin-top: 100px;
+    }
     .product .container .box .icon {
         padding: 3px 20px; 
     }
@@ -533,7 +523,6 @@
     .product .container .box .icon ul li i {
         font-size: 18px; 
     }
-
 
     .product .container .box {
         width: calc(50% - 20px); 

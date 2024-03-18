@@ -8,8 +8,8 @@
 {
     width: 100px;
     height: 100px;
-    bottom: 625px;
-    position: absolute;
+    position: relative;
+    margin-top: -30px;
 }
 .main-header
 {
@@ -292,22 +292,15 @@
     color: #000000;
 }
 @media screen and (max-width:768px){ .all-nav .main-header .container .search_box{ display: none;}
-.all-nav .main-header .container .logoimg{ margin-bottom: 10px;}
-.all-nav .main-header .container { margin-right: 50px; margin-top:12px;}
+.all-nav .main-header .container .logoimg{ margin-bottom: 15px;}
+.all-nav .main-header .container { margin-right: 10px; margin-top:-4px;}
 .all-nav .header .container .nav ul li .link{width: 100%;}
+.all-nav .main-header .container .icon{ margin-left: 70px; margin-top: -20px;}
 }
-
 @media screen and (max-width: 738px) {
-    .main-header .logoimg {
-        display: none; /* Ocultar el logo en pantallas pequeñas */
-    }
 
-    .main-header{
-        padding: 30px 7px;
-    }
-
-    .main-header .container .search_box button {
-        display: none; /* Ocultar el botón de búsqueda en pantallas pequeñas */
+    .main-header .container .search_box {
+        display: none; 
     }
     .main-header .container .search_box input {
         border-radius: 5px;

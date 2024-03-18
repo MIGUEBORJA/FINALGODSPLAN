@@ -130,9 +130,17 @@
     color: #f3b123;
 }
 .map {
-    width: 100%;
+    margin-top: 5px;
+    width: 80%;
     height: 250px; /* Establece la altura deseada */
     max-width: 70%; /* Asegura que el mapa no sea más ancho que su contenedor */
 }
-
+.footer .container .icon li .mercadol
+{
+    color:white;
+}
+.footer .container .icon li .mercadol:hover
+{
+    color: #021526;
+}
 

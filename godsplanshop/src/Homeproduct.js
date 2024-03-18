@@ -7,39 +7,11 @@ const HomeProduct = [
         Img: './img/01-1.jpeg'
     },
     {
-        id: 2,
-        Title:"Nike-Air Ballons.",
-        Cat: 'Drop uno',
-        Price: '40.000',
-        Img: './img/01-2.jpg'
-    },
-    {
-        id: 3,
-        Title:"Golden State Warriors",
-        Cat: 'Drop uno',
-        Price: '40.000',
-        Img: './img/01-6.jpeg'
-    },
-    {
         id: 4,
         Title:"Trasher Black.",
         Cat: 'Drop uno',
         Price: '40.000',
         Img: './img/01-4.jpeg'
-    },
-    {
-        id: 5,
-        Title:"Bad Boys Black.",
-        Cat: 'Drop uno',
-        Price: '40.000',
-        Img: './img/01-5.jpeg'
-    },
-    {
-        id: 6,
-        Title:"Palm Angels White.",
-        Cat: 'Drop uno',
-        Price: '40.000',
-        Img: './img/01-7.jpeg'
     },
     {
         id: 7,
@@ -54,13 +26,6 @@ const HomeProduct = [
         Cat: 'Drop uno',
         Price: '40.000',
         Img: './img/01-9.jpeg'
-    },
-    {
-        id: 9,
-        Title:" AZ State of my mind.",
-        Cat: 'G-Drop',
-        Price: '40.000',
-        Img: './img/2-1.jpg'
     },
     {
         id: 10,
@@ -110,13 +75,6 @@ const HomeProduct = [
         Cat: 'G-Drop',
         Price: '40.000',
         Img: './img/2-8.jpg'
-    },
-    {
-        id: 17,
-        Title:"Jordan.",
-        Cat: 'G-Drop',
-        Price: '40.000',
-        Img: './img/2-9.jpg'
     },
     {
         id: 18,
