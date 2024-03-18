@@ -101,3 +101,16 @@
     border: 4px solid #242222;
     cursor: pointer;
 }
+@media screen and (max-width: 900px) {
+
+.GOD {
+    display: none;
+}
+.container-register {
+    margin-left: 35px; /* Eliminar el margen izquierdo en pantallas más pequeñas */
+    width: 90%; /* Ancho del formulario en pantallas más pequeñas */
+    max-width: 400px; /* Máximo ancho para evitar que se extienda demasiado */
+    padding: 20px; /* Reducir el padding en pantallas más pequeñas */
+    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
+}
+}

@@ -32,7 +32,7 @@
 {
     width: 100px;
     height: 100px;
-    bottom: 515px;
+    bottom: 625px;
     position: absolute;
 }
 .main-header
@@ -41,12 +41,15 @@
     width: 100%;
     border-bottom: 1px solid #000000;
     height: 100px;
+    
 }
 .main-header .container
 {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 .main-header .container .search_box
 {
@@ -239,7 +242,7 @@
 .header
 {
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px 1px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .header .container 
@@ -318,4 +321,33 @@
     color: #000000;
 }
 
+@media screen and (max-width: 738px) {
+    .main-header .logoimg {
+        display: none; /* Ocultar el logo en pantallas pequeñas */
+    }
 
+    .main-header{
+        padding: 30px 7px;
+    }
+
+    .main-header .container .search_box button {
+        display: none; /* Ocultar el botón de búsqueda en pantallas pequeñas */
+    }
+    .main-header .container .search_box input {
+        border-radius: 5px;
+        width: 60%; /* Reducir el ancho del campo de búsqueda */
+    }
+    .main-header .container {
+        width: 70%; /* Reducir el ancho del contenedor */
+    }
+    .main-header .container .icon {
+        margin-right: 5%; /* Ajustar el margen derecho de los iconos */
+    }
+    .header .container .authorized .login p {
+        display: none; /* Ocultar el texto "Iniciar sesión" en pantallas pequeñas */
+    }
+    .header .container .authorized {
+        margin-left: 15px; /* Ajustar el margen izquierdo del elemento autorizado */
+    }
+
+}

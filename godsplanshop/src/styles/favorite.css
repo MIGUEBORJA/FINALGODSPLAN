@@ -92,3 +92,14 @@
     font-size: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .emptycartbtn {
+        padding: 75px 100px; /* Reducir el padding en pantallas más pequeñas */
+        margin-top: 10px; /* Reducir el margen superior en pantallas más pequeñas */
+        margin-left: 10%; /* Eliminar el margen izquierdo en pantallas más pequeñas */
+        margin-right: 0; /* Eliminar el margen derecho en pantallas más pequeñas */
+        width: 80%; /* Ancho del botón en pantallas más pequeñas */
+        max-width: 300px; /* Máximo ancho para evitar que se extienda demasiado */
+    }
+}
+

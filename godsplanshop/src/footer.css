@@ -12,7 +12,7 @@
 }
 .footer
 {
-    padding: 30px 40px;
+    padding: 1px 1px;
     width: 100%;
     background-color: #010f1c;
 }
@@ -128,6 +128,11 @@
 .footer .container .page ul li .adm:hover
 {
     color: #f3b123;
+}
+.map {
+    width: 100%;
+    height: 250px; /* Establece la altura deseada */
+    max-width: 70%; /* Asegura que el mapa no sea más ancho que su contenedor */
 }
 
 

@@ -1,44 +1,29 @@
-import React, { useEffect } from 'react';
-import { Carousel } from 'bootstrap';
+import ImageGallery from 'react-image-gallery'
+import 'react-image-gallery/styles/css/image-gallery.css'
 
-const About = () => {
-  useEffect(() => {
-    // Inicializar el carrusel
-    const carousel = document.querySelector('#carouselExample');
-    const bsCarousel = new Carousel(carousel, {
-      // Opciones del carrusel, si es necesario
-    });
-  }, []);
+function About(){
+  
+  const images =[
+    {
+      original: 'https://picsum.photos/id/1018/1000/600',
+      thumbnail: 'https://picsum.photos/id/1018/250/150'
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600',
+      thumbnail: 'https://picsum.photos/id/1015/250/150'
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600',
+      thumbnail: 'https://picsum.photos/id/1019/250/150'
+    }
+  ]
 
-  return (
-    <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="d-flex justify-content-center align-items-center">
-            <img src="../img/2-2.png" className="d-block w-30" alt="..." />
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="d-flex justify-content-center align-items-center">
-            <img src="../img/2-2.png" className="d-block w-30" alt="..." />
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="d-flex justify-content-center align-items-center">
-            <img src="../img/2-2.png" className="d-block w-30" alt="..." />
-          </div>
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Atrás</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Siguiente</span>
-      </button>
+  return(
+    <div style={{width: "60vw", margin: "auto", paddingTop: "3vw"}}>
+      <ImageGallery items={images}
+      />
     </div>
-  );
-};
+  )
+}
 
 export default About;

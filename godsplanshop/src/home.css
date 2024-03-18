@@ -31,15 +31,15 @@
 }
 
 .top_banner .container .detail {
-    margin-top: 10.5%;
+    margin-top: 12%;
     margin-left: 4rem;
 }
 
-.top_banner .container .detail .titleDiv {
-    font-size: 80px;
-    color: #fff;
-    margin-bottom: 30px;
-}
+    .top_banner .container .detail .titleDiv {
+        font-size: 6vw; /* Usamos vw en lugar de px para hacer el texto responsive */
+        color: #fff;
+        margin-bottom: 2vw; /* También puedes usar vw para el margen inferior */
+    }
 
 .top_banner .container .detail .link {
     padding: 10px 20px;
@@ -63,9 +63,11 @@
 }
 
 .img_box_Slider img {
-    width: 400px;
-    height: 500px;
-    margin-right: 150px;
+    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    margin-right: 15%; /* Puedes ajustar el margen derecho según sea necesario */
+
 }
 
 .product_type {
@@ -162,7 +164,7 @@
 }
 
 .product {
-    padding: 60px 120px;
+    padding: 60px 30px;
     width: 100%;
 }
 
@@ -263,7 +265,7 @@
 }
 
 .banner {
-    padding: 20px 30px;
+    padding: 14px 10px;
     width: 100%;
 }
 
@@ -283,7 +285,7 @@
 .banner .container .detail h4 {
     color: #e2e0e0;
     font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .banner .container .detail h3 {
@@ -421,8 +423,9 @@
 
 @media screen and (max-width: 900px) {
     .img_box img {
-        width: 100%;
-        height: auto;
+        width: 90%;
+        height: 70%;
+        margin-top: 15px;
     }
     
 
@@ -456,8 +459,8 @@
 
 
     .product .container .box {
-        width: 200px;
-        height: 270px;
+        width: 120px;
+        height: 290px;
     }
 
     .product .container .box .img_box img {
@@ -466,11 +469,23 @@
     }
 
     .banner .container .detail h3 {
-        font-size: 28px;
+        display: none;
     }
+    
+.banner .container .detail h4 {
+    font-size: 12px;
+}
+.banner .container {
+    padding: 13px 10px;
+}
+.banner .container .detail .link {
+    padding: 3px 3px;
+}
+
+
 
     .banner .container .detail p {
-        font-size: 24px;
+        font-size: 22px;
         margin-bottom: 15px;
     }
 
@@ -595,6 +610,7 @@
         width: 200px;
         height: 200px;
     }
+
 }
 body {
     overflow-x: hidden;
