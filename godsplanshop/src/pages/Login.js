@@ -8,6 +8,7 @@ const Login = () => {
     email: '',
     password: ''
   })
+
   const navigate = useNavigate()
   axios.defaults.withCredentials = true;
   const handleSubmit = (event) => {
@@ -34,13 +35,13 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit}> 
             <label className='cont' htmlFor='email'>Correo Electronico</label>
-            <input className='controls' type='text' id='email' autoComplete='off'
+            <input className='controls' type='text' id='email' autoComplete='off' required
              onChange={e => setValues({...values, email: e.target.value})}></input>
             <label className='cont' htmlFor='password'>Contraseña</label>
-            <input className='controls' type='password' id='password' autoComplete='off'
+            <input className='controls' type='password' id='password' autoComplete='off' required
              onChange={e => setValues({...values, password: e.target.value})}></input>
             <button className='init' type='submit'>Iniciar sesión</button>
-            <p>¿Aún no tienes cuenta?</p>
+            <p className='account'>¿Aún no tienes cuenta?</p>
             <Link  to='/register' className='link'>Registrate</Link>
         </form>
         </div>

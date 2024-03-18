@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { ExportToExcel } from '../../util/ExportToExcel';
+import { MdDelete } from "react-icons/md";
+import { HiPencilAlt } from "react-icons/hi";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -29,7 +31,10 @@ const UserList = () => {
  } 
   return (
     <>
+      <div className='categoryForm'>
+      <div className='MainCategories'>
       <h1>Listado de Usuarios</h1>
+      <ExportToExcel apiData={users} fileName="table-users-excel"/>
       <table>
         <thead>
           <tr>
@@ -49,13 +54,15 @@ const UserList = () => {
               <td>{user.email}</td>
               <td>{user.contact}</td>
               <td>{user.role}</td>
-              <td><button className='update'><Link to={`/dashboard/updateuser/${user.id_User}`}>Update</Link></button></td>
-              <td><button className='delete' onClick={() => handleDelete(user.id_User)}>Delete</button></td>
+              <td><Link to={`/dashboard/updateuser/${user.id_User}`}><HiPencilAlt className='icon'/></Link>
+              <button className='delete' onClick={() => handleDelete(user.id_User)}><MdDelete className='icon2'/></button></td> 
             </tr>
           ))}
         </tbody>
       </table>
-      <ExportToExcel apiData={users} fileName="table-users-excel" />
+      </div>
+      </div>
+      
     </>
   )
 }

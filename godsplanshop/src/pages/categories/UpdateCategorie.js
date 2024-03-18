@@ -41,11 +41,13 @@ const UpdateCategory = () => {
 
   return (
     <>
-      <form onSubmit={handleClick} className="update-form">
+    <div className='categoryForm'>
         <h1 className="title">EDITAR CATEGORÍA</h1>
-        <input type="text" id="name" name="name" placeholder="Nombre de la categoría" value={category.name} onChange={handleChange} />
-        <button type="submit">Actualizar</button>
+      <form onSubmit={handleClick} className="addCategory">
+        <input  className='input' type="text" id="name" name="name" placeholder="Nombre de la categoría" value={category.name} onChange={handleChange} />
+        <button className='btnSubmit' type="submit">Actualizar</button>
       </form>
+    </div>
     </>
   );
 };

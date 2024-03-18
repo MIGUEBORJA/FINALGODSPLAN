@@ -55,9 +55,9 @@
     padding: 10px 5px ;
     border-radius: 5px;
     border: none;
-    margin-bottom: 30px;
+    font-weight: 400;
 }
-.container-register p
+.container-register .account
 {
     color:black;
     text-align: center;

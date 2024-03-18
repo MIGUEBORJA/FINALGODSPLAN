@@ -4,30 +4,6 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
-.free
-{
-    padding: 10px 30px;
-    width: 100%;
-    background: #5d5353;
-    display: flex;
-}
-.free .icon
-{
-    color: #f3b123;
-    font-size: 32px;
-}
-.free p 
-{
-    margin-left: 10px;
-    color:  #fff;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.free span
-{
-    color: #f3b123;
-}
 .main-header .logoimg 
 {
     width: 100px;
@@ -223,7 +199,6 @@
     overflow-y: scroll;
     margin-top: 5px;
 }
-
 ::-webkit-scrollbar
 {
     -webkit-appearance: none;
@@ -237,8 +212,6 @@
     background-color: #797979;
     border-radius: 20px;
 }
-
-
 .header
 {
     width: 100%;
@@ -311,14 +284,17 @@
     transition: 0.5s;
 
 }
-
-
 .header .container .authorized .login p
 {
     font-size: 15px;
     margin-right: 10px;
     margin-top: 4px;
     color: #000000;
+}
+@media screen and (max-width:768px){ .all-nav .main-header .container .search_box{ display: none;}
+.all-nav .main-header .container .logoimg{ margin-bottom: 10px;}
+.all-nav .main-header .container { margin-right: 50px; margin-top:12px;}
+.all-nav .header .container .nav ul li .link{width: 100%;}
 }
 
 @media screen and (max-width: 738px) {
