@@ -143,4 +143,10 @@
 {
     color: #021526;
 }
+@media screen and (max-width: 320px) {
+    .footer .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
 

@@ -5,21 +5,21 @@ function About(){
   
   const images =[
     {
-      original: 'https://picsum.photos/id/1018/1000/600',
-      thumbnail: 'https://picsum.photos/id/1018/250/150'
+      original: '../img/bannerslider.jpeg',
+      thumbnail: '../img/bannerslider.jpeg'
     },
     {
-      original: 'https://picsum.photos/id/1015/1000/600',
-      thumbnail: 'https://picsum.photos/id/1015/250/150'
+      original: '../img/bannerslider3.jpeg',
+      thumbnail: '../img/bannerslider3.jpeg'
     },
     {
-      original: 'https://picsum.photos/id/1019/1000/600',
-      thumbnail: 'https://picsum.photos/id/1019/250/150'
+      original: '../img/bannerslider2.jpeg',
+      thumbnail: '../img/bannerslider2.jpeg'
     }
   ]
 
   return(
-    <div style={{width: "60vw", margin: "auto", paddingTop: "3vw"}}>
+    <div style={{width: "100%", margin: "auto",}}>
       <ImageGallery items={images}
       />
     </div>

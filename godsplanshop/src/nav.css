@@ -43,7 +43,7 @@
 }
 .main-header .container .search_box button
 {
-    border: 3px solid #769CFF;
+    border: 1px solid #769CFF;
     outline: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -291,11 +291,16 @@
     margin-top: 4px;
     color: #000000;
 }
-@media screen and (max-width:768px){ .all-nav .main-header .container .search_box{ display: none;}
-.all-nav .main-header .container .logoimg{ margin-bottom: 15px;}
+@media screen and (max-width: 768px){ .all-nav .main-header .container .search_box{ display: none;}
+.all-nav .main-header {height: 70px;}
+.all-nav .main-header .container .logoimg{ width: 80px; height: 70px; margin-right: 30px;}
 .all-nav .main-header .container { margin-right: 10px; margin-top:-4px;}
-.all-nav .header .container .nav ul li .link{width: 100%;}
-.all-nav .main-header .container .icon{ margin-left: 70px; margin-top: -20px;}
+.all-nav .header .container .nav ul li .link{width: 100%; }
+.all-nav .main-header .container .icon{ margin-left: 15px; margin-top: -20px;}
+.all-nav .main-header .container .icon .UserIcon{ padding-top: 15px; font-size: 40px;}
+.all-nav{ width: 100%;}
+.all-nav .header .container .nav {font-size: 10px;}
+.all-nav .main-header .container .icon .account p {padding-top: 20px;}
 }
 @media screen and (max-width: 738px) {
 

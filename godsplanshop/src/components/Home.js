@@ -105,7 +105,7 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
                     </ul> 
                   </div>
                 <div className='img_box'>
-                  <img src={curElm.Img} alt={curElm.Title}></img>
+                  <img src={curElm.Img} alt={curElm.Title} title={curElm.Title}></img>
                 </div>
                  <div className='detail'>
                   <p>{curElm.Price}</p>

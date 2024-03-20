@@ -36,6 +36,7 @@ const AddCategorie = () => {
     const handleClick = async (e) => {
       e.preventDefault(); 
       console.log("Datos de la categoría:", category); 
+      window.location.reload(true);
 
       try {
         await axios.post("http://localhost:5000/categories/createcategorie", category);

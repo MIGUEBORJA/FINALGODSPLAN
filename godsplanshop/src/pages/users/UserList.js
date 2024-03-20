@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ExportToExcel } from '../../util/ExportToExcel';
 import { MdDelete } from "react-icons/md";
 import { HiPencilAlt } from "react-icons/hi";
+import Swal from 'sweetalert2';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -22,9 +23,26 @@ const UserList = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    Swal.fire({
+      title: "Estás seguro?",
+      text: "Eliminarás el producto!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, estoy seguro!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+        window.location.reload()
+      }
+    });
      try {
          await axios.delete("http://localhost:5000/admin/deleteuser/" + id)
-         window.location.reload()
      } catch (error) {
          console.log(error)
      }

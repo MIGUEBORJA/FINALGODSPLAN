@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import '../product.css'; 
 import { CartContext } from '../context/CartContext';
 import { FaRegWindowClose } from "react-icons/fa";
+import Swal from 'sweetalert2'; 
 
 
 const Product = ({detail, view, close, setClose, addtofavorite}) => {
@@ -49,6 +50,23 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
         } catch (error) {
             console.log(error)
         }
+        Swal.fire({
+            title: "Estás seguro?",
+            text: "Eliminarás el producto!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, estoy seguro!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          });
     } 
 
     const handleAddToCart = (product) => {

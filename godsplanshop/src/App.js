@@ -4,7 +4,6 @@ import Nav from './components/Nav.js';
 import { BrowserRouter } from 'react-router-dom'; 
 import Rout from './Rout.js';
 import Footer from './components/Footer.js';
-import ProductDetail from './components/ProductDetail.js';
 
 const App = () => {
 
@@ -26,15 +25,6 @@ const App = () => {
   //product detail
   const [close, setClose] = useState(false)
   const [detail, setDetail] = useState([])
-  //filter product
-  const [product, setProduct] = useState(ProductDetail); 
-  const searchbtn = (product) =>
-  {
-    const change = ProductDetail.filter((x) => {
-      return x.Cat === product
-    })
-    setProduct(change)
-  } 
   //product detail 
   const view = (product) =>
   {
@@ -44,7 +34,7 @@ const App = () => {
   return (
     <CartProvider>
     <BrowserRouter>
-     <Nav searchbtn={searchbtn} />
+     <Nav />
      <Rout detail={detail} view={view} close={close} setClose={setClose} favorite={favorite} setFavorite={setFavorite} addtofavorite={addFavorite}/>
      <Footer/>
     </BrowserRouter>

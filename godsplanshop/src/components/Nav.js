@@ -97,19 +97,19 @@ const Nav = () => {
                                 (
                                     <div className='account'>
                                         <Link to='/register' className='user_icon'>
-                                            <FaUser />
+                                            <FaUser className='UserIcon' />
                                         </Link>
                                         <p>{name}!!</p>
                                     </div>
                                 )
                             }
-                            <Link to="/favorite" className='heart'><FaHeartCircleCheck /></Link>
+                            <Link to="/favorite" className='heart'><FaHeartCircleCheck  className='UserIcon' /></Link>
                             <div onClick={() => {
                                 setCartOpen(!cartOpen);
                             }} className='buttonCart'>
                                 {
                                     !cartOpen ? (
-                                        <Link className='link'><FaShoppingCart /></Link>
+                                        <Link className='link'><FaShoppingCart  className='UserIcon' /></Link>
                                     ) : (
                                         <button className='close'><IoIosCloseCircle /></button>
                                     )

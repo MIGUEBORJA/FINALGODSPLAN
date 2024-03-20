@@ -16,7 +16,8 @@ const Login = () => {
     axios.post('http://localhost:5000/auth/login', values)
     .then(res => {
       if(res.data.Status === "Success") {
-        navigate('/')
+        navigate('/');
+        window.location.reload(); 
       }else{
         alert(res.data.Error);
       }
