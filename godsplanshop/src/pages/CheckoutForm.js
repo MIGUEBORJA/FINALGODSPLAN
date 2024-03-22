@@ -7,7 +7,7 @@ import { CartContext } from '../context/CartContext';
 const CheckoutForm = () => {
   const { cartItems } = useContext(CartContext);
   const [preferenceId, setPreferenceId] = useState([])
-  initMercadoPago('APP_USR-d469ee1a-21f8-43b3-bc87-21d5c09b9777', {
+  initMercadoPago('APP_USR-da627b25-ad50-4259-804c-fa0077647116', {
     locale: "es-CO",
   });
   const total = cartItems.reduce((acc, product) => acc + (product.price * product.amount), 0);
@@ -19,17 +19,10 @@ const CheckoutForm = () => {
       return <p>El carrito está vacío</p>;
     }
     try {
-      const itemsData = cartItems.map((product) => ({
-        id: product.id_product,
-        title: product.title,
-        quantity: product.amount,
-        unit_price: product.price,
-      }));
       const response = await axios.post("http://localhost:5000/create_preference", {
         title,
         quantity: totalQuantity,
         unit_price: total,
-        items: itemsData,
       });
 
       const { id } = response.data;

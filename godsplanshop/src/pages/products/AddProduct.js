@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/addproduct.css';
 
 const AddProduct = () => {
+  const [categories, setCategories] = useState([]);
   const [product,setProduct] = useState({
     title: "",
     description: "",
@@ -12,13 +13,11 @@ const AddProduct = () => {
     categories_id_categories: 0
   });
 
-  const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/categories");
-        setCategories(response.data);
+        const res = await axios.get("http://localhost:5000/categories");
+        setCategories(res.data);
       } catch (error){
         console.error("Error al obtener las categorías", error)
       }

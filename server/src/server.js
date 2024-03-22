@@ -12,7 +12,7 @@ import checkoutRoutes from "./routes/checkoutRoutes.js";
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
-    accessToken: "APP_USR-4081095028968996-021722-1a76f98adf8c97beda0722336cdb7933-1673313641",
+    accessToken: "APP_USR-7746925915044072-031218-3e1c4d380d77f9713bf9e92c41e3d84d-1723222079",
 });
 
 const app = express(); 
@@ -45,6 +45,7 @@ app.post("/create_preference", async (req, res) => {
                 pending: "https://www.youtube.com/watch?v=KDPhIQcaovQ"
             },
             auto_return: "approved",
+            notification_url: "https://d9ba-2800-e2-be80-dfd-85ec-5a7f-f20a-ae01.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
@@ -59,6 +60,33 @@ app.post("/create_preference", async (req, res) => {
         }); 
     }
 });
+
+app.post("/webhook", async function (req, res){
+    const payment = req.query; 
+    console.log({payment});
+
+
+    const paymentId = req.query.id; 
+
+    try {
+        const response = await fetch(`https://api.mercadopago.com/v1/payments/${paymentId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${client.accessToken}`
+            }
+        }); 
+
+        if (response.ok) {
+            const data = await response.json(); 
+            console.log(data); 
+        }
+
+        res.sendStatus(200);
+    } catch (error) {
+        console.error('Error', error); 
+        res.sendStatus(500)
+    }
+})
 app.use('/auth', authRoutes);
 app.get("/products", (req, res) => {
     const q = "SELECT * FROM products"

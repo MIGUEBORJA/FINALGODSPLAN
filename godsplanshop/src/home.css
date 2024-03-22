@@ -502,6 +502,10 @@
         height: 250px;
     }
 }
+@media screen and (max-width: 667px){ .top_banner { width: 500px;}
+.top_banner .container { max-width: 500px; height: 700px;}
+
+}
 @media screen and (max-width:768px){
     .top_banner .container .detail {padding-top: 30px; padding-left: 30px;}
     .about .container {margin-left: 27%; }
@@ -599,7 +603,6 @@
         width: 200px;
         height: 200px;
     }
-
 }
 body {
     overflow-x: hidden;
