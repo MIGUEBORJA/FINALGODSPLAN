@@ -3,6 +3,8 @@ import '../styles/register.css';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Validation from '../Validation.js';
+import Swal from 'sweetalert2';
+
 
 function Register() {
   const [values, setValues] = useState({
@@ -20,15 +22,45 @@ function Register() {
     axios.post('http://localhost:5000/auth/register', values)
     .then(res => {
       if(res.data.Status === "Success") {
+        //alert
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Ingreso completo"
+    });
+
         navigate('/login')
       }else{
-        console.error("Error: " + res.data.Error);
+//alert
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Error al ingresar"
+        }); 
       }
     })
-    .catch(error => {
-      console.error('Error en la solicitud al servidor:', error.message);
-    });  
   }
+
   return (
     <>
     <div className='loginContainer'>
@@ -53,7 +85,8 @@ function Register() {
             <label className='cont' htmlFor='password'>Contraseña</label>
             <input className='controls' type='password' name='password' autoComplete='off' 
             onChange={e => setValues({...values, password: e.target.value})} title='password'></input>
-            {errors.password && <p className='error'>{errors.password}</p>}
+            {errors.password && <p className='error'>{errors.password}
+            </p>}
             <input className='init2' type='submit' value='register' />
             <p className='account'>¿Ya tienes una cuenta?</p>
             <Link to='/login' className='link'>Inicia Sesión</Link>

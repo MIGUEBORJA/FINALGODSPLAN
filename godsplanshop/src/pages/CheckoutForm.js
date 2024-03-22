@@ -3,10 +3,12 @@ import '../styles/checkout.css';
 import axios from 'axios';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import { CartContext } from '../context/CartContext';
+import { InfoContext } from '../context/InfoContext';
 
 const CheckoutForm = () => {
   const { cartItems } = useContext(CartContext);
-  const [preferenceId, setPreferenceId] = useState([])
+  const { value, setValue } = useContext(InfoContext); 
+  const [preferenceId, setPreferenceId] = useState(null)
   initMercadoPago('APP_USR-da627b25-ad50-4259-804c-fa0077647116', {
     locale: "es-CO",
   });
@@ -23,14 +25,18 @@ const CheckoutForm = () => {
         title,
         quantity: totalQuantity,
         unit_price: total,
+        selectedProducts: cartItems,
+        checkoutInfo: value
       });
-
+      console.log('ENTRO RESPONSE')
+      console.log(response)
       const { id } = response.data;
       return id;
     } catch (error) {
       console.log(error)
     }
   }
+
   const handleBuy = async () => {
     const id = await createPreference();
     if (id) {
@@ -56,10 +62,10 @@ const CheckoutForm = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log("Datos del pedido", order);
+    console.log("Datos del pedido", e);
 
     try {
-      await axios.post("http://localhost:5000/pedidos/createcheckout", order);
+      setValue(order);
     } catch (error) {
       console.error("Error al enviar la solicitud: ", error);
       console.error("detalles de la respuesta:", error.response.data)
@@ -72,7 +78,7 @@ const CheckoutForm = () => {
     <>
       <div className='container-checkout'>
         <h1 className='title'>Datos de envío</h1>
-        <form className='check-form'>
+        <form className='check-form' onSubmit={handleClick}>
           <label className='cont' htmlFor='client_email'>Contacto</label>
           <input className='controls' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
             onChange={handleChange} required></input>
@@ -95,9 +101,10 @@ const CheckoutForm = () => {
           <label htmlFor='client_contact'></label>
           <input className='controls' type='number' name='client_contact' autoComplete='off' placeholder='Teléfono'
             onChange={handleChange}></input>
-          <button onSubmit={handleClick} type='submit' className='check'>Guardar formulario</button>
+          <button  type='submit' className='check'>Guardar formulario</button>
         </form>
         <button onClick={handleBuy} className='finishBtn'>haz click aquí</button>
+        {/*preferenceId && <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'blank' }} />*/}
         {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} />}
       </div>
     </>

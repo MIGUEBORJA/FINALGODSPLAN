@@ -10,6 +10,7 @@ import bodyParser from "body-parser";
 import categoriesRoutes from "./routes/categoriesRoutes.js"; 
 import checkoutRoutes from "./routes/checkoutRoutes.js";
 import { MercadoPagoConfig, Preference } from 'mercadopago';
+import { createCheckout } from "./controllers/checkoutController.js";
 
 const client = new MercadoPagoConfig({
     accessToken: "APP_USR-7746925915044072-031218-3e1c4d380d77f9713bf9e92c41e3d84d-1723222079",
@@ -28,6 +29,9 @@ app.get("/", (req, res) => {
     res.json("Hola este es el backend")
 })
 app.post("/create_preference", async (req, res) => {
+    console.log("VER /create_preference");
+    console.log(req);
+
     try {
         const body = {
             items: [
@@ -35,8 +39,9 @@ app.post("/create_preference", async (req, res) => {
                     title: req.body.title,
                     quantity:Number(req.body.quantity),
                     unit_price: Number(req.body.unit_price),
-                    items: req.body.items,
+                    //items: req.body.selectedProducts,
                     currency_id: "COP",
+                    //checkoutInfo: req.body.checkoutInfo
                 },
             ],
             back_urls: {
@@ -45,11 +50,15 @@ app.post("/create_preference", async (req, res) => {
                 pending: "https://www.youtube.com/watch?v=KDPhIQcaovQ"
             },
             auto_return: "approved",
-            notification_url: "https://d9ba-2800-e2-be80-dfd-85ec-5a7f-f20a-ae01.ngrok-free.app/webhook"
+            notification_url: "https://3158-186-80-28-48.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
         const result = await preference.create({ body }); 
+        //ACAAAAA result.collector.id
+        createCheckout(req);
+        console.log('ENTRO create_preference');
+        console.log({result});
         res.json({
             id: result.id,
         });
@@ -65,7 +74,6 @@ app.post("/webhook", async function (req, res){
     const payment = req.query; 
     console.log({payment});
 
-
     const paymentId = req.query.id; 
 
     try {
@@ -78,10 +86,12 @@ app.post("/webhook", async function (req, res){
 
         if (response.ok) {
             const data = await response.json(); 
+            console.log('PRUEBA webhookyy'); 
             console.log(data); 
-        }
-
-        res.sendStatus(200);
+            //createCheckout(data);  
+        } 
+        res.sendStatus(200)  
+        
     } catch (error) {
         console.error('Error', error); 
         res.sendStatus(500)

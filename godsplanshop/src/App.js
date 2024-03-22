@@ -4,6 +4,7 @@ import Nav from './components/Nav.js';
 import { BrowserRouter } from 'react-router-dom'; 
 import Rout from './Rout.js';
 import Footer from './components/Footer.js';
+import { CheckoutProvider } from './context/InfoContext.jsx';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
     setClose(true)
   }
   return (
+    <CheckoutProvider>
     <CartProvider>
     <BrowserRouter>
      <Nav />
@@ -39,6 +41,7 @@ const App = () => {
      <Footer/>
     </BrowserRouter>
     </CartProvider>
+    </CheckoutProvider>
   ) 
 }
 

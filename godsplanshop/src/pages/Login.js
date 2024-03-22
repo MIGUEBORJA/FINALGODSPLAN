@@ -2,6 +2,8 @@ import {React, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -16,13 +18,45 @@ const Login = () => {
     axios.post('http://localhost:5000/auth/login', values)
     .then(res => {
       if(res.data.Status === "Success") {
+        //alert
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Ingreso completo"
+    });
         navigate('/');
         window.location.reload(); 
+
       }else{
-        alert(res.data.Error);
+
+        //alert
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Error al ingresar"
+    });
       }
     })
-    .then(err => console.log(err)); 
   }
   return (
     <>
