@@ -78,6 +78,7 @@ const Login = () => {
             <button className='init' type='submit'>Iniciar sesión</button>
             <p className='account'>¿Aún no tienes cuenta?</p>
             <Link  to='/register' className='link'>Registrate</Link>
+            <h5>¿Olvidaste tu Contraseña?</h5>
         </form>
         </div>
       </div>
