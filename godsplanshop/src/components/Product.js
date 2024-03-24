@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import '../product.css'; 
 import { CartContext } from '../context/CartContext';
 import { FaRegWindowClose } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { HiPencilAlt } from "react-icons/hi";
 import Swal from 'sweetalert2'; 
 
 
@@ -137,13 +139,13 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
                             isAdmin && 
                             (
                                 <div className='admin-actions'>
-                                    <button className='delete' onClick={() => handleDelete(product.id_product)}>Delete</button>
-                                    <button className='update'><Link to={`/dashboard/updateproduct/${product.id_product}`}>Update</Link></button>
+                                    <button className='delete' onClick={() => handleDelete(product.id_product)}><MdDelete/></button>
+                                    <button className='update'><Link to={`/dashboard/updateproduct/${product.id_product}`}><HiPencilAlt/></Link></button>
                                 </div>
                             )
                         }
                         <div className='detail'>
-                            <h3>{product.price}</h3>
+                            <h3>$ {product.price}</h3>
                             <h4>{product.title}</h4>
                             <p>DROP: {product.categories_id_categories}</p>
                         </div>

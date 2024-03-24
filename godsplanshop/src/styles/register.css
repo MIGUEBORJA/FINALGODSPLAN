@@ -71,6 +71,12 @@
     margin-left: 120px;
     text-decoration: none;
 }
+.container-register .link2
+{
+    color:white;
+    margin-left: 130px;
+    text-decoration: none;
+}
 .container-register .link:hover
 {
     color: #03203B;
@@ -131,4 +137,9 @@
     padding: 20px; /* Reducir el padding en pantallas más pequeñas */
     border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
 }
+}
+@media screen and (max-width: 667px){ .loginContainer {width: 500px;}
+.GOD {display: none;}
+.img-pj {display:none;}
+.loginContainer .register {margin-left: 20px;}
 }

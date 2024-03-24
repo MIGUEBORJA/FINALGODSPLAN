@@ -38,7 +38,6 @@ const Login = () => {
         window.location.reload(); 
 
       }else{
-
         //alert
     const Toast = Swal.mixin({
       toast: true,
@@ -77,7 +76,7 @@ const Login = () => {
              onChange={e => setValues({...values, password: e.target.value})}></input>
             <button className='init' type='submit'>Iniciar sesión</button>
             <p className='account'>¿Aún no tienes cuenta?</p>
-            <Link  to='/register' className='link'>Registrate</Link>
+            <Link  to='/register' className='link2'>Registrate</Link>
         </form>
         </div>
       </div>

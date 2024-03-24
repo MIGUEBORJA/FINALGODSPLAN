@@ -85,3 +85,7 @@
     margin-top: 8px;
     height: 30px;
 }
+@media screen and (max-width: 667px){ .container-checkout {width: 500px;} 
+.container-checkout .form {width: 500px; padding-left: 30px;}
+.container-checkout .check-form { width: 400px; margin-left: 50px; margin-right: 0;}
+}

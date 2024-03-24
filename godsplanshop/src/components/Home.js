@@ -108,7 +108,7 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
                   <img src={curElm.Img} alt={curElm.Title} title={curElm.Title}></img>
                 </div>
                  <div className='detail'>
-                  <p>{curElm.Price}</p>
+                  <p>$ {curElm.Price}</p>
                   <h3>{curElm.Title}</h3>
                   <h4>{curElm.Cat}</h4>
                  </div>
@@ -123,8 +123,8 @@ const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
           <div className='detail'>
            <h4>LAS MEJORES GORRAS DEL MERCADO</h4>
            <h3>encuentra las mejores gorras en God's Plan</h3>
-            <p>$50.000 Cop unidad</p>
-            <Link to='/product' className='link'>Compra Ahora  <FaArrowRight/></Link>
+            <p className='priceBann'>$50.000 Cop unidad</p>
+            <Link to='/product' className='link'>Compra Ahora  <FaArrowRight className='iconsito'/></Link>
           </div>
           <div className='img_box'>
             <img src='../img/banner2.gif' alt='SliderImg'></img>

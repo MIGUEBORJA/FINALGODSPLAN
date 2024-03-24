@@ -4,6 +4,7 @@
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
+    text-decoration:none;
 }
 .footer .container .aboutfoot .logo img
 {
@@ -15,6 +16,7 @@
     padding: 1px 1px;
     width: 100%;
     background-color: #010f1c;
+    padding-bottom: 50px;
 }
 .footer .container
 {
@@ -25,8 +27,8 @@
 .footer .container .aboutfoot
 {
     max-width: 30%;
-    margin-left: 100px;
     margin-top: 50px;
+    margin-left: 20px;
 }
 .footer .container .aboutfoot .detail p
 {
@@ -61,6 +63,7 @@
 .footer .container .account
 {
     margin-right: 100px;
+    margin-left: 50px;
     margin-top: 80px;
 }
 .footer .container .account h3
@@ -72,6 +75,9 @@
 {
     margin-top: 10px;
     margin-left: 20px;
+}
+.footer .container .account ul Link{
+    text-decoration: none;
 }
 .footer .container .account ul li
 {
@@ -138,15 +144,30 @@
 .footer .container .icon li .mercadol
 {
     color:white;
+    text-decoration: none;
 }
 .footer .container .icon li .mercadol:hover
 {
     color: #021526;
+}
+.footer .container .map 
+{
+    margin-left: 50px;
+    margin-top: 20px;
 }
 @media screen and (max-width: 320px) {
     .footer .container {
         display: flex;
         flex-direction: column;
     }
+}
+@media screen and (max-width: 667px){ .footer .container { width: 500px; display: flex;}
+.footer{width: 500px; padding:none; padding-bottom:50px;}
+.footer .container .map {display: none;}
+.footer .aboutfoot {margin-left: 20px;}
+.footer .container .account {margin-left: 50px; margin-top: 60px;}
+.footer .container .aboutfoot .logo img {width: 60px; height: 60px;}
+.footer .container .aboutfoot .detail p {font-size: 10px;}
+.footer .container .aboutfoot .detail .icon {margin-left: -20px;}
 }
 

@@ -2,7 +2,6 @@ import React from 'react'
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
-import { FaTruckArrowRight } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
 import '../footer.css';
@@ -31,9 +30,9 @@ const Footer = () => {
             <h3>Información</h3>
             <ul>
               <li><a href='https://link.mercadopago.com.co/godsplan' target="_blank" rel="noopener noreferrer" className='mercado'>Cuenta</a></li>
-              <Link to='/'><li>Inicio</li></Link>
-              <Link to='/about'><li>Acerca de nosotros</li></Link>
-              <Link to='/contact'><li>Contacto</li></Link>
+              <Link to='/' className='mercadol'><li>Inicio</li></Link>
+              <Link to='/about' className='mercadol'><li>Acerca de nosotros</li></Link>
+              <Link to='/contact' className='mercadol'><li>Contacto</li></Link>
               <li><a href='https://www.youtube.com/@wigborja87' target="_blank" rel="noopener noreferrer" className='mercado'>Canal YT</a></li>
             </ul>
           </div>

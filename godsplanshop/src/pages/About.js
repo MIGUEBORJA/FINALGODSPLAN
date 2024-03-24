@@ -1,5 +1,6 @@
 import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
+import '../styles/About.css';
 
 function About(){
   
@@ -19,8 +20,8 @@ function About(){
   ]
 
   return(
-    <div style={{width: "100%", margin: "auto",}}>
-      <ImageGallery items={images}
+    <div  className='carroussel'>
+      <ImageGallery items={images} className='content'
       />
     </div>
   )

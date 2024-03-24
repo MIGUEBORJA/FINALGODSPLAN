@@ -270,5 +270,16 @@
 {
     flex-basis: 50%; 
 }
-
+@media screen and (max-width: 667px){ .dahboard-container {width: 500px; display:flex; flex-direction: column; margin-left: 1px;}
+.dahboard-container .sideBar {width: 100%; height: 100px; padding-bottom: 20px;}
+.dahboard-container .sideBar .menuDiv .divTitle {padding-bottom: 1px;}
+.dahboard-container .sideBar .logoDiv { display: none;}
+.dahboard-container .sideBar .menuDiv { height: 50px;}
+.dahboard-container .sideBar .menuDiv .menuLists {display: flex; margin-bottom: 0;}
+.dahboard-container .sideBar .menuDiv .menuLists .listItem .Link{margin-right: -1;}
+.dahboard-container .mainContent .top {display: none;}
+.dahboard-container .mainContent  .bottomCard {display: flex; flex-direction: column;}
+.dahboard-container .mainContent .bottomCard .main {width: 450px;}
+.dahboard-container .mainContent .bottomCard .main .textDiv {margin-left: 20px;}
+}
 
