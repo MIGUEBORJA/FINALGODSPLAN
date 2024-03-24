@@ -33,32 +33,24 @@ app.post("/create_preference", async (req, res) => {
     console.log(req);
 
     try {
+        const items = recorrerCarItems(req.body.selectedProducts);
+        console.log("VER /ITEMS");
+        console.log(items);
         const body = {
-            items: [
-                {
-                    title: req.body.title,
-                    quantity:Number(req.body.quantity),
-                    unit_price: Number(req.body.unit_price),
-                    //items: req.body.selectedProducts,
-                    currency_id: "COP",
-                    //checkoutInfo: req.body.checkoutInfo
-                },
-            ],
+            items,
             back_urls: {
                 success: "https://www.youtube.com/watch?v=ndgsWcd3yUs",
                 failure: "https://www.youtube.com/watch?v=b3FJgIZVW4g",
                 pending: "https://www.youtube.com/watch?v=KDPhIQcaovQ"
             },
+            transaction_amount: req.body.quantity,
             auto_return: "approved",
             notification_url: "https://3158-186-80-28-48.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
         const result = await preference.create({ body }); 
-        //ACAAAAA result.collector.id
-        createCheckout(req);
-        console.log('ENTRO create_preference');
-        console.log({result});
+        createCheckout(req, result.collector_id);
         res.json({
             id: result.id,
         });
@@ -69,6 +61,22 @@ app.post("/create_preference", async (req, res) => {
         }); 
     }
 });
+
+
+const recorrerCarItems = (carItems, selectedProducts) => {
+    console.log(carItems);
+   return carItems.map((item) => {
+        console.log(item);
+        return {
+            title: item.title,
+            quantity:Number(item.amount),
+            unit_price: Number(item.price),
+            currency_id: "COP",
+            id: item.id_product
+        };
+    });
+}
+
 
 app.post("/webhook", async function (req, res){
     const payment = req.query; 

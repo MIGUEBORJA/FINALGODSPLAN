@@ -53,7 +53,7 @@ const UserList = () => {
       <div className='MainCategories'>
       <h1>Listado de Usuarios</h1>
       <ExportToExcel apiData={users} fileName="table-users-excel"/>
-      <table>
+      <table className='tableUsers'>
         <thead>
           <tr>
             <th>ID</th>

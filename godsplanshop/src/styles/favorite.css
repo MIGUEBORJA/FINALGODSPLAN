@@ -102,4 +102,9 @@
         max-width: 300px; /* Máximo ancho para evitar que se extienda demasiado */
     }
 }
+@media screen and (max-width: 667px){ .favoriteContainer {width: 500px;}
+.favoriteContainer .cartcontainer .contant .favorite_item { margin-left: 30px; }
+.favoriteContainer .cartcontainer .contant {margin-left: 80px; }
+.favoriteContainer .cartcontainer .emptycartbtn {margin-left: 100px;}
+}
 

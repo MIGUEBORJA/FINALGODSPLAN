@@ -104,3 +104,9 @@ tr:hover td{
     border: none;
     cursor: pointer;
 }
+@media screen and (max-width: 667px){ .categoryForm{width: 500px;}
+.categoryForm .addCategory {width: 450px; margin-left: 25px;}
+.categoryForm .MainCategories {width: 400px;  margin-left: 25px;}
+.categoryForm .MainCategories table {width: 400px; margin-left: 20px;}
+.categoryForm .MainCategories .tableUsers {width: 500px; border-left: 1px;}
+}

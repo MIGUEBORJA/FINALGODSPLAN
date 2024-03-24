@@ -102,4 +102,6 @@
 {
     background-color: rgb(243, 87, 31);
 }
+@media screen and (max-width: 667px){ .productForm .addForm{ margin-left: 50px; width: 400px;}
+}
 

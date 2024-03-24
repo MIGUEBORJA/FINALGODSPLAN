@@ -1,0 +1,4 @@
+@media screen and (max-width: 667px){ .carroussel {width: 500px; height: 500px;}
+.carroussel .content {width: 500px; height: 800px;}
+.carroussel .content .image-gallery-slide {max-height: 900px;}
+}

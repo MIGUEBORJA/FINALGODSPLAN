@@ -78,6 +78,7 @@ const CheckoutForm = () => {
     <>
       <div className='container-checkout'>
         <h1 className='title'>Datos de envío</h1>
+        <div className='form'>
         <form className='check-form' onSubmit={handleClick}>
           <label className='cont' htmlFor='client_email'>Contacto</label>
           <input className='controls' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
@@ -103,7 +104,8 @@ const CheckoutForm = () => {
             onChange={handleChange}></input>
           <button  type='submit' className='check'>Guardar formulario</button>
         </form>
-        <button onClick={handleBuy} className='finishBtn'>haz click aquí</button>
+        </div>
+        <button onClick={handleBuy} className='finishBtn'>Finalizar Compra</button>
         {/*preferenceId && <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'blank' }} />*/}
         {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} />}
       </div>
