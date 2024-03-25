@@ -1,4 +1,4 @@
-import React, { useContext, useEffect,  useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { HiShoppingBag } from "react-icons/hi2";
 import { IoIosEye } from "react-icons/io";
@@ -6,7 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { Link } from 'react-router-dom';
-import '../product.css'; 
+import '../product.css';
 import { CartContext } from '../context/CartContext';
 import { FaRegWindowClose } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -14,9 +14,9 @@ import { HiPencilAlt } from "react-icons/hi";
 import Swal from 'sweetalert2'; 
 
 
-const Product = ({detail, view, close, setClose, addtofavorite}) => {
+const Product = ({ detail, view, close, setClose, addtofavorite }) => {
     const [products, setProducts] = useState([]);
-    const [auth, setAuth] = useState(false); 
+    const [auth, setAuth] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const { addItemToCart } = useContext(CartContext);
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -25,25 +25,25 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
         const fetchAllProducts = async () => {
             try {
                 const res = await axios.get("http://localhost:5000/products");
-                setProducts(res.data); 
+                setProducts(res.data);
             } catch (error) {
                 console.log(error)
             }
         }
         fetchAllProducts()
-        const token = Cookies.get('token'); 
+        const token = Cookies.get('token');
 
         if (token) {
-            const decodedToken = jwtDecode(token); 
-            if (decodedToken.role === 'admin'){
-                setIsAdmin(true); 
+            const decodedToken = jwtDecode(token);
+            if (decodedToken.role === 'admin') {
+                setIsAdmin(true);
             } else {
-                setIsAdmin(false); 
+                setIsAdmin(false);
             }
         } else {
-            setAuth(false); 
-        }  
-    },[])
+            setAuth(false);
+        }
+    }, [])
 
     const handleDelete = async (id) => {
         try {
@@ -60,20 +60,36 @@ const Product = ({detail, view, close, setClose, addtofavorite}) => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Sí, estoy seguro!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
             }
-          });
-    } 
+        });
+    }
 
     const handleAddToCart = (product) => {
         addItemToCart(product);
-    };  
+        //alert
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Producto agregado al carrito"
+        });
+    };
 
 
     const handleCategoryChange = (category) => {

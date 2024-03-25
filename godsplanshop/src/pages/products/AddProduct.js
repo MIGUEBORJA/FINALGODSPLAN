@@ -82,6 +82,7 @@ const AddProduct = () => {
           <label htmlFor='image' className='labelFile'>Imagen del producto</label>
           <input type='file' id='image' name='image' onChange={handleChange} className='fileInput' />
       <button className='btnSumbit' type='submit' onClick={handleClick}>Agregar</button>
+
     </form>
     </div>
     </>
