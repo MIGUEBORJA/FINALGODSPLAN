@@ -1,20 +1,14 @@
 import db from "../db.js";
+import ModelProduct from "../models/ModelProduct.js";
 
 const createProduct = (req, res) => {
     try {
+        const product = new ModelProduct(null, req.body.title,  req.body.description, req.body.price, req.file.filename, req.body.categories_id_categories)
         if (!req.file) {
             throw new Error('No se ha proporcionado ningún archivo');
         }
-        const sql = "INSERT INTO products (`title`, `description`, `price`, `image`, `categories_id_categories`) VALUES (?)";
-        const values = [ 
-            req.body.title,
-            req.body.description,
-            req.body.price,
-            req.file.filename,
-            req.body.categories_id_categories,
-        ]; 
-
-        db.query(sql, [values], (err, data) => {
+        const sql = `INSERT INTO products (title ,description, price, image, categories_id_categories) VALUES ('${product.title}','${product.description}',${product.price},'${product.image}', ${product.categories_id_categories})`; 
+        db.query(sql, (err, data) => {
             if (err) {
                 console.error(err); 
                 return res.status(500).json({ error: 'Error en el servidor al crear el producto' });

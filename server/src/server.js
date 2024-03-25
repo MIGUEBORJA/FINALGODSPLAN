@@ -29,28 +29,42 @@ app.get("/", (req, res) => {
     res.json("Hola este es el backend")
 })
 app.post("/create_preference", async (req, res) => {
-    console.log("VER /create_preference");
     console.log(req);
-
     try {
         const items = recorrerCarItems(req.body.selectedProducts);
-        console.log("VER /ITEMS");
-        console.log(items);
         const body = {
             items,
+            metadata: {
+                email:  req.body.checkoutInfo.client_email,
+                name: req.body.checkoutInfo.client_name,
+                identification: {
+                    number: req.body.checkoutInfo.client_id
+                }
+            },
             back_urls: {
                 success: "https://www.youtube.com/watch?v=ndgsWcd3yUs",
                 failure: "https://www.youtube.com/watch?v=b3FJgIZVW4g",
                 pending: "https://www.youtube.com/watch?v=KDPhIQcaovQ"
             },
+            payer: {
+                address:{
+                    street_name:req.body.checkoutInfo.client_address,
+                    zip_code:req.body.checkoutInfo.client_postal_code
+                },
+                phone: {
+                    number:req.body.checkoutInfo.client_contact
+                }
+            },
             transaction_amount: req.body.quantity,
             auto_return: "approved",
-            notification_url: "https://3158-186-80-28-48.ngrok-free.app/webhook"
+            notification_url: "https://1202-186-80-28-48.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
         const result = await preference.create({ body }); 
-        createCheckout(req, result.collector_id);
+        console.log("VER /RESULT");
+        console.log(result);
+
         res.json({
             id: result.id,
         });
@@ -64,9 +78,7 @@ app.post("/create_preference", async (req, res) => {
 
 
 const recorrerCarItems = (carItems, selectedProducts) => {
-    console.log(carItems);
    return carItems.map((item) => {
-        console.log(item);
         return {
             title: item.title,
             quantity:Number(item.amount),
@@ -79,8 +91,9 @@ const recorrerCarItems = (carItems, selectedProducts) => {
 
 
 app.post("/webhook", async function (req, res){
+    console.log("VER /WEBHOOK");
+    console.log(req.query);
     const payment = req.query; 
-    console.log({payment});
 
     const paymentId = req.query.id; 
 
@@ -94,9 +107,17 @@ app.post("/webhook", async function (req, res){
 
         if (response.ok) {
             const data = await response.json(); 
-            console.log('PRUEBA webhookyy'); 
+            console.log('PRUEBA RESPUESTA webhook'); 
             console.log(data); 
-            //createCheckout(data);  
+            console.log(data.additional_info.items); 
+            console.log(data.additional_info.payer.address); 
+            console.log(data.additional_info.payer.phone); 
+            console.log(data.metadata); 
+            createCheckout(data.additional_info,
+                data.metadata, data.id,
+                data.transaction_details.total_paid_amount,
+                data.status
+            );
         } 
         res.sendStatus(200)  
         

@@ -62,7 +62,6 @@ const updateCategorie = async (req, res) => {
     }
    
 }
-
 const getCategories = (req, res) => {
     const q = "SELECT * FROM categories"
     db.query(q,(err,data)=> {
