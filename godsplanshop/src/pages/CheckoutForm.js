@@ -36,8 +36,6 @@ const CheckoutForm = () => {
         selectedProducts: cartItems,
         checkoutInfo: value
       });
-      console.log('ENTRO RESPONSE')
-      console.log(response)
       const { id } = response.data;
       return id;
     } catch (error) {
