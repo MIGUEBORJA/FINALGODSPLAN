@@ -73,8 +73,8 @@ const CheckoutForm = () => {
     console.log("Datos del pedido", order);
 
     if (!validateEmail(order.client_email)) {
-       //alert
-       const Toast = Swal.mixin({
+      //alert
+      const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
@@ -93,8 +93,8 @@ const CheckoutForm = () => {
     }
 
     if (!validatePostalCode(order.client_postal_code)) {
-       //alert
-       const Toast = Swal.mixin({
+      //alert
+      const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
@@ -113,8 +113,8 @@ const CheckoutForm = () => {
     }
 
     if (!validatePhoneNumber(order.client_contact)) {
-       //alert
-       const Toast = Swal.mixin({
+      //alert
+      const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
@@ -133,8 +133,8 @@ const CheckoutForm = () => {
     }
 
     if (!validateDocumentID(order.client_id)) {
-       //alert
-       const Toast = Swal.mixin({
+      //alert
+      const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
@@ -153,43 +153,44 @@ const CheckoutForm = () => {
     }
 
     if (!validateName(order.client_name)) {
- //alert
- const Toast = Swal.mixin({
-  toast: true,
-  position: "top-end",
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-  }
-});
-Toast.fire({
-  icon: "warning",
-  title: "Ingrese un nombre válido sin números ni caracteres especiales"
-});      return;
+      //alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "warning",
+        title: "Ingrese un nombre válido sin números ni caracteres especiales"
+      });
+      return;
     }
 
     if (!validateAddress(order.client_address)) {
- //alert
- const Toast = Swal.mixin({
-  toast: true,
-  position: "top-end",
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-  }
-});
-Toast.fire({
-  icon: "warning",
-  title: "Ingrese una direccion válida"
-});      return;
+      //alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "warning",
+        title: "Ingrese una direccion válida"
+      }); return;
     }
-    
+
 
 
     try {
@@ -224,56 +225,37 @@ Toast.fire({
       <div className='checkout-container'>
         <h1 className='title'>Datos de envío</h1>
         <div className='form'>
-          
+
           <form className='check-form' onSubmit={handleClick}>
-  <label className='cont' htmlFor='client_email'></label>
-  <input className='form-control' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
-    onChange={handleChange} maxLength={100} required></input>
-  {/* maxLength para el maximo de caracteres */}
-  <label htmlFor='client_name'></label>
-  <input className='form-control' type='text' name='client_name' autoComplete='off' placeholder='Nombre Completo'
-    onChange={handleChange} maxLength={40} required></input>
-  <label htmlFor='client_id'></label>
-  <input className='form-control' type='text' name='client_id' autoComplete='off' placeholder='Cédula'
-    onChange={handleChange} maxLength={11} required></input>
+            <label className='cont' htmlFor='client_email'></label>
+            <input className='form-control' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
+              onChange={handleChange} maxLength={100} required></input>
+            {/* Agregar maxLength */}
+            <label htmlFor='client_name'></label>
+            <input className='form-control' type='text' name='client_name' autoComplete='off' placeholder='Nombre Completo'
+              onChange={handleChange} maxLength={40} required></input>
+            {/* Agregar maxLength */}
+            <label htmlFor='client_id'></label>
+            <input className='form-control' type='text' name='client_id' autoComplete='off' placeholder='Cédula'
+              onChange={handleChange} maxLength={11} required></input>
+            {/* Agregar maxLength */}
+            <div className='address'>
+              <label htmlFor='client_address'></label>
+              <input className='form-control' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
+                onChange={handleChange} maxLength={15} required></input>
+              {/* Agregar maxLength */}
+              <label htmlFor='client_postal_code'></label>
+              <input className='form-control' type='text' name='client_postal_code' autoComplete='off' placeholder='Código Postal'
+                onChange={handleChange} maxLength={10} required></input>
+              {/* Agregar maxLength */}
+            </div>
 
-<div className='address'>
-  <label htmlFor='client_address'></label>
-  <select className='form-control' name='client_address_prefix' onChange={handleChange} required>
-    <option value='Cll'>Cll</option>
-    <option value='Cr'>Cr</option>
-  </select>
-  <input className='form-control' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
-    onChange={handleChange} maxLength={3} required></input>
-
-    <select className='form-control' name='client_address_prefix' onChange={handleChange} required>
-    <option value='Cll'>N°</option>
-    <option value='Cr'>Cr</option>
-    <option value='Cll'>Cll</option>
-
-  </select>
-  <input className='form-control' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
-    onChange={handleChange} maxLength={3} required></input>
-
-<select className='form-control' name='client_address_prefix' onChange={handleChange} required>
-    <option value='Cll'>-</option>
-  </select>
-  <input className='form-control' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
-    onChange={handleChange} maxLength={3} required></input>
-
-</div>
-
-<label htmlFor='client_postal_code'></label>
-  <input className='form-control' type='text' name='client_postal_code' autoComplete='off' placeholder='Código Postal'
-    onChange={handleChange} maxLength={6} required></input>
-
-  <label htmlFor='client_contact'></label>
-  <input className='form-control' type='text' name='client_contact' autoComplete='off' placeholder='Teléfono'
-    onChange={handleChange} maxLength={10}></input>
-
-  <button type='submit' className='btn btn-primary'>Guardar formulario</button>
-  
-</form>
+            <label htmlFor='client_contact'></label>
+            <input className='form-control' type='text' name='client_contact' autoComplete='off' placeholder='Teléfono'
+              onChange={handleChange} maxLength={10}></input>
+            {/* Agregar maxLength */}
+            <button type='submit' className='btn btn-primary'>Guardar formulario</button>
+          </form>
 
 
           {/* Modal */}
