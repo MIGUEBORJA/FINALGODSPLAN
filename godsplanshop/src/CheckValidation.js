@@ -1,5 +1,14 @@
+
 export const validateEmail = (email) => {
-    return /^[A-Za-z0-9._%+-]+@(gmail\.com|hotmail\.com)$/.test(email);
+  return /^[A-Za-z0-9._%+-]+@(gmail\.com|hotmail\.com)$/.test(email);
+};
+
+export const validateSubject = (subject) => {
+  return subject.trim().length > 0;
+};
+
+export const validateMessage = (message) => {
+  return message.trim().length > 0;
 };
 
   
@@ -19,9 +28,6 @@ export const validateEmail = (email) => {
     return /^[a-zA-Z\s]{10,40}$/.test(name);
   };
 
-  export const validateAddress = (address) => {
-    return /^[A-Za-z]+\s+(Cll|Cr)\s+\d{7,15}[A-Za-z]$/.test(address);
-};
 
 export const validatePassword = (password) => {
   if (password.length < 6) {

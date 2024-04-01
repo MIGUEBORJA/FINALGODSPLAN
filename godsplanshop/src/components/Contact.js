@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../contact.css'
-import { validateEmail, validateSubject, validateMessage, validateName } from '../ContactValidation';
+import { validateEmail, validateSubject, validateMessage, validateName } from '../CheckValidation';
 import Swal from 'sweetalert2';
 
 
