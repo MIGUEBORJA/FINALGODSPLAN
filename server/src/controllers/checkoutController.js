@@ -68,4 +68,55 @@ const recorrerSelectedProducts = (items, id,selectedProducts) => {
         return [id, parseInt(product.id), parseInt(product.quantity)];
     });
 }
-export { createCheckout }; 
+
+const getAllCheck = (req, res) => {
+    const q = "SELECT * FROM purchase"
+    db.query(q,(err,data)=> {
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+}
+const getPending = (req, res) => {
+    const q = "SELECT * FROM purchase_detail"
+    db.query(q, (err,data) => {
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+}
+
+const deleteCheck = async (req, res) => {
+    try {
+        const checkId = req.params.id; 
+        const q = "DELETE FROM purchase WHERE number_buys = ?"
+
+        db.query(q, [checkId], (err, data) => {
+            if (err) {
+                console.error('Error al eliminar el pedido',err); 
+                return res.status(500).json({ error: 'Error al eliminar el pedido'}); 
+            }
+        });
+    } catch (error) {
+        console.error('Error al eliminar el pedido', error);
+        res.status(500).json({error: 'Error en el servidor al eliminar el pedido'}); 
+    }
+}
+
+const deletePending = async (req, res) => {
+    try {
+        const checkId = req.params.id; 
+        const q = "DELETE FROM purchase_detail WHERE number_buys = ?"
+
+        db.query(q, [checkId], (err, data) => {
+            if (err) {
+                console.error('Error al eliminar el pendiente',err); 
+                return res.status(500).json({ error: 'Error al eliminar el pendiente'}); 
+            }
+        });
+    } catch (error) {
+        console.error('Error al eliminar el pendiente', error);
+        res.status(500).json({error: 'Error en el servidor al eliminar el pendiente'}); 
+    }
+}
+
+
+export { createCheckout, getAllCheck, getPending, deleteCheck, deletePending }; 

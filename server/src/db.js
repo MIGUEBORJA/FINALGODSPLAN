@@ -1,10 +1,13 @@
+import { config } from 'dotenv';
 import mysql from 'mysql2';
 
+config()
+
 const db = mysql.createConnection({
-    host: "127.0.0.1",
+    host: process.env.HOST,
     user: "root",
-    password: "", //contraseña
-    database: "db_godsplan"
+    password: process.env.PASSWORD, //contraseña
+    database: process.env.DATABASE
 }); 
 
 export default db; 

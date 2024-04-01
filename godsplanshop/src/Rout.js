@@ -15,7 +15,8 @@ import UpdateUser from './pages/users/UpdateUser.js'
 import Favorite from './components/favorite.js'
 import CheckoutForm from './pages/CheckoutForm.js'
 import About from './pages/About.js'
-
+import PurchaseTable from './pages/check/PurchaseTable.js'
+import PendingProducts from './pages/check/PendingProducts.js';
 
 const Rout = ({product, setProduct, detail, view, close, setClose, favorite, setFavorite, addtofavorite}) => {
   return (
@@ -36,6 +37,8 @@ const Rout = ({product, setProduct, detail, view, close, setClose, favorite, set
         <Route path='/dashboard/updateuser/:id' element={<UpdateUser/>}/> 
         <Route path='/checkoutform'  element={<CheckoutForm/>} />
         <Route path='/about' element={<About/>}/>
+        <Route path='/dashboard/checklist' element={<PurchaseTable/>}/>
+        <Route path='/dashboard/pending' element={<PendingProducts/>}/>
       </Routes>
     </>
   )

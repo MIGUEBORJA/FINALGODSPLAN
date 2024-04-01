@@ -173,6 +173,7 @@ const CheckoutForm = () => {
     }
 
 
+
     try {
       await setValue(order);
       //alert
@@ -202,39 +203,38 @@ const CheckoutForm = () => {
 
   return (
     <>
-      <div className='checkout-container'>
+      <div className='container-checkout'>
         <h1 className='title'>Datos de envío</h1>
         <div className='form'>
-
           <form className='check-form' onSubmit={handleClick}>
             <label className='cont' htmlFor='client_email'></label>
-            <input className='form-control' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
+            <input className='controls' type='text' name='client_email' autoComplete='off' placeholder='Correo electrónico'
               onChange={handleChange} maxLength={100} required></input>
             {/* Agregar maxLength */}
-            <label htmlFor='client_name'></label>
-            <input className='form-control' type='text' name='client_name' autoComplete='off' placeholder='Nombre Completo'
+            <label   className='cont'  htmlFor='client_name'></label>
+            <input className='controls' type='text' name='client_name' autoComplete='off' placeholder='Nombre Completo'
               onChange={handleChange} maxLength={40} required></input>
             {/* Agregar maxLength */}
-            <label htmlFor='client_id'></label>
-            <input className='form-control' type='text' name='client_id' autoComplete='off' placeholder='Cédula'
+            <label  className='cont'  htmlFor='client_id'></label>
+            <input className='controls' type='text' name='client_id' autoComplete='off' placeholder='Cédula'
               onChange={handleChange} maxLength={11} required></input>
             {/* Agregar maxLength */}
             <div className='address'>
-              <label htmlFor='client_address'></label>
-              <input className='form-control' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
-                onChange={handleChange} maxLength={24} required></input>
+              <label   className='cont' htmlFor='client_address'></label>
+              <input className='controls-add' type='text' name='client_address' autoComplete='off' placeholder='Dirección'
+                onChange={handleChange}  required></input>
               {/* Agregar maxLength */}
-              <label htmlFor='client_postal_code'></label>
-              <input className='form-control' type='text' name='client_postal_code' autoComplete='off' placeholder='Código Postal'
-                onChange={handleChange} maxLength={6} required></input>
+              <label   className='cont' htmlFor='client_postal_code'></label>
+              <input className='controls-add2' type='text' name='client_postal_code' autoComplete='off' placeholder='Código Postal'
+                onChange={handleChange} maxLength={10} required></input>
               {/* Agregar maxLength */}
             </div>
 
-            <label htmlFor='client_contact'></label>
-            <input className='form-control' type='text' name='client_contact' autoComplete='off' placeholder='Teléfono'
+            <label   className='cont' htmlFor='client_contact'></label>
+            <input className='controls' type='text' name='client_contact' autoComplete='off' placeholder='Teléfono'
               onChange={handleChange} maxLength={10}></input>
             {/* Agregar maxLength */}
-            <button type='submit' className='btn btn-primary'>Guardar formulario</button>
+            <button type='submit' className='check'>Guardar formulario</button>
           </form>
 
 
@@ -248,7 +248,7 @@ const CheckoutForm = () => {
                     <button type="button" className="btn-close" onClick={() => setShowModal(false)} label="Close">X</button>
                   </div>
                   <div className="modal-body">
-                    <button onClick={handleBuy} className='btn btn-primary'>Finalizar Compra</button>
+                    <button onClick={handleBuy} className='check2'>Finalizar Compra</button>
                     {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} />}
                   </div>
                 </div>

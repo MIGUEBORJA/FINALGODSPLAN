@@ -71,6 +71,20 @@
     margin-top: 8px;
     height: 30px;
 }
+.container-checkout .check2
+{
+    width:100%;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #0bb45f;
+    color: #fff;
+    margin-top: 8px;
+    height: 30px;
+}
 .container-checkout .finishBtn
 {
     width: 100%;

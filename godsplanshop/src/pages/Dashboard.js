@@ -5,6 +5,8 @@ import { GrChapterAdd } from "react-icons/gr";
 import { TbCategoryPlus } from "react-icons/tb";
 import { TbUsersGroup } from "react-icons/tb";
 import { FaArrowRight } from "react-icons/fa";
+import { FaTruckArrowRight } from "react-icons/fa6";
+import { PiPackageDuotone } from "react-icons/pi";
 
 const Dashboard = () => {
   return (
@@ -26,6 +28,12 @@ const Dashboard = () => {
             </li>
             <li className='listItem'>
               <Link className='Link flex' to='/dashboard/userslist'><TbUsersGroup className='icon'/><span className='itemSpan'>Usuarios</span></Link>
+            </li>
+            <li className='listItem'>
+              <Link className='Link flex' to='/dashboard/checklist'><FaTruckArrowRight className='icon'/><span className='itemSpan'>Pedidos</span></Link>
+            </li>
+            <li className='listItem'>
+              <Link className='Link flex' to='/dashboard/pending'><PiPackageDuotone className='icon'/><span className='itemSpan'>A entreagar</span></Link>
             </li>
           </ul>
         </div>

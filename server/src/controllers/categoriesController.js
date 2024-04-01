@@ -1,13 +1,11 @@
 import db from "../db.js";
+import ModelCategory from "../models/ModelCategory.js";
 
 const createCategories = (req, res) => {
     try {
-        const sql = "INSERT INTO categories (`name`) VALUES (?)"; 
-
-       const values = [
-        req.body.name
-        ];
-        db.query(sql, [values], (err, data) => {
+        const category = new ModelCategory(null, req.body.name);
+        const sql = `INSERT INTO categories (name) VALUES ('${category.name}')`; 
+        db.query(sql, (err, data) => {
         if (err) {
             console.error(err); 
             return res.status(500).json({ error: 'Error en el servidor al crear el producto' });

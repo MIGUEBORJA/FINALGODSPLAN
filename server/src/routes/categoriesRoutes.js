@@ -9,5 +9,6 @@ router.post('/createcategorie', verifyUser, checkUserRole('admin'), createCatego
 router.delete('/:id', verifyUser, checkUserRole('admin'), deleteCategorie); 
 router.put('/:id', verifyUser, checkUserRole('admin'), updateCategorie); 
 router.get('/', verifyUser, checkUserRole('admin'), getCategories ); 
+
 export default router; 
 
