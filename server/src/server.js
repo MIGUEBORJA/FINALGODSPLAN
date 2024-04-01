@@ -57,7 +57,7 @@ app.post("/create_preference", async (req, res) => {
             },
             transaction_amount: req.body.quantity,
             auto_return: "approved",
-            notification_url: "https://1202-186-80-28-48.ngrok-free.app/webhook"
+            notification_url: "https://46db-2800-e2-be80-dfd-5d61-1894-987d-8d56.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
