@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { MdDelete } from "react-icons/md";
+import Swal from 'sweetalert2'; 
 
 const PurchaseTable = () => {
     const [purchases, setPurchases] = useState([]);
@@ -16,6 +18,32 @@ const PurchaseTable = () => {
 
         fetchPurchase();
     }, []);
+
+    const handleDelete = async (id) => {
+        Swal.fire({
+            title: "Estás seguro?",
+            text: "Eliminarás el pedido!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, estoy seguro!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "El pedido ha sido eliminado.",
+                    icon: "success"
+                });
+                window.location.reload()
+            }
+        });
+        try {
+            await axios.delete("http://localhost:5000/pedidos/" + id)
+        } catch (error) {
+            console.log(error)
+        }
+    } 
   return (
     <>
       <div className='categoryForm'>
@@ -31,6 +59,7 @@ const PurchaseTable = () => {
                         <th>c. postal</th>
                         <th>Compra</th>
                         <th>Estado</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +72,7 @@ const PurchaseTable = () => {
                             <td>{purchase.client_postal_code}</td>
                             <td>{purchase.number_buys}</td>
                             <td>{purchase.buys_state}</td>
+                            <td><button className='delete' onClick={() => handleDelete(purchase.number_buys)}><MdDelete className='icon2'/></button></td>
                         </tr>
                      ))}
                 </tbody>

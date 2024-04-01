@@ -154,9 +154,12 @@ const Product = ({ detail, view, close, setClose, addtofavorite }) => {
                         {
                             isAdmin && 
                             (
-                                <div className='admin-actions'>
-                                    <button className='delete' onClick={() => handleDelete(product.id_product)}><MdDelete/></button>
-                                    <button className='update'><Link to={`/dashboard/updateproduct/${product.id_product}`}><HiPencilAlt/></Link></button>
+                                <div className='dmin'>
+                                    <div className='admin-actions'>
+                                        <button className='delete' onClick={() => handleDelete(product.id_product)}><MdDelete/></button>
+                                        <button className='update'><Link to={`/dashboard/updateproduct/${product.id_product}`}><HiPencilAlt/></Link></button>
+                                    </div>
+                                    <p>Id: {product.id_product}</p>
                                 </div>
                             )
                         }

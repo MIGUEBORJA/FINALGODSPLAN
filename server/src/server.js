@@ -1,3 +1,4 @@
+import { config } from 'dotenv';
 import  express  from "express";
 import cors from 'cors'; 
 import cookieParser from 'cookie-parser';
@@ -12,8 +13,10 @@ import checkoutRoutes from "./routes/checkoutRoutes.js";
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { createCheckout } from "./controllers/checkoutController.js";
 
+config()
+
 const client = new MercadoPagoConfig({
-    accessToken: "APP_USR-7746925915044072-031218-3e1c4d380d77f9713bf9e92c41e3d84d-1723222079",
+    accessToken: process.env.ACCESS_TOKEN,
 });
 
 const app = express(); 
@@ -57,7 +60,7 @@ app.post("/create_preference", async (req, res) => {
             },
             transaction_amount: req.body.quantity,
             auto_return: "approved",
-            notification_url: "https://46db-2800-e2-be80-dfd-5d61-1894-987d-8d56.ngrok-free.app/webhook"
+            notification_url: "https://6499-2800-e2-be80-dfd-6df8-7967-bbb0-e08c.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 

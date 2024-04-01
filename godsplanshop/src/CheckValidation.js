@@ -19,9 +19,6 @@ export const validateEmail = (email) => {
     return /^[a-zA-Z\s]{10,40}$/.test(name);
   };
 
-  export const validateAddress = (address) => {
-    return /^[A-Za-z]+\s+(Cll|Cr)\s+\d{7,15}[A-Za-z]$/.test(address);
-};
 
 export const validatePassword = (password) => {
   if (password.length < 6) {

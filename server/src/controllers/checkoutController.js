@@ -100,4 +100,23 @@ const deleteCheck = async (req, res) => {
         res.status(500).json({error: 'Error en el servidor al eliminar el pedido'}); 
     }
 }
-export { createCheckout, getAllCheck, getPending, deleteCheck }; 
+
+const deletePending = async (req, res) => {
+    try {
+        const checkId = req.params.id; 
+        const q = "DELETE FROM purchase_detail WHERE number_buys = ?"
+
+        db.query(q, [checkId], (err, data) => {
+            if (err) {
+                console.error('Error al eliminar el pendiente',err); 
+                return res.status(500).json({ error: 'Error al eliminar el pendiente'}); 
+            }
+        });
+    } catch (error) {
+        console.error('Error al eliminar el pendiente', error);
+        res.status(500).json({error: 'Error en el servidor al eliminar el pendiente'}); 
+    }
+}
+
+
+export { createCheckout, getAllCheck, getPending, deleteCheck, deletePending }; 

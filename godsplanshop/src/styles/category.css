@@ -104,6 +104,11 @@ tr:hover td{
     border: none;
     cursor: pointer;
 }
+.categoryForm .MainCategories .search {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px 10px;
+}
 @media screen and (max-width: 667px){ .categoryForm{width: 500px;}
 .categoryForm .addCategory {width: 450px; margin-left: 25px;}
 .categoryForm .MainCategories {width: 400px;  margin-left: 25px;}
