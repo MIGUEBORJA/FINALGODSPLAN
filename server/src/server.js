@@ -60,7 +60,7 @@ app.post("/create_preference", async (req, res) => {
             },
             transaction_amount: req.body.quantity,
             auto_return: "approved",
-            notification_url: "https://6499-2800-e2-be80-dfd-6df8-7967-bbb0-e08c.ngrok-free.app/webhook"
+            notification_url: "https://338e-186-80-28-48.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
@@ -78,7 +78,6 @@ app.post("/create_preference", async (req, res) => {
         }); 
     }
 });
-
 
 const recorrerCarItems = (carItems, selectedProducts) => {
    return carItems.map((item) => {

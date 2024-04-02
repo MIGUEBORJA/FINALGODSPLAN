@@ -46,12 +46,6 @@ const Product = ({ detail, view, close, setClose, addtofavorite }) => {
     }, [])
 
     const handleDelete = async (id) => {
-        try {
-            await axios.delete("http://localhost:5000/product/" + id)
-            window.location.reload()
-        } catch (error) {
-            console.log(error)
-        }
         Swal.fire({
             title: "Estás seguro?",
             text: "Eliminarás el producto!",
@@ -68,7 +62,13 @@ const Product = ({ detail, view, close, setClose, addtofavorite }) => {
                     icon: "success"
                 });
             }
+            window.location.reload()
         });
+        try {
+            await axios.delete("http://localhost:5000/product/" + id)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleAddToCart = (product) => {
