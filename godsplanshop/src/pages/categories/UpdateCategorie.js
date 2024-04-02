@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2'; 
+
 
 
 const UpdateCategory = () => {
@@ -33,9 +35,40 @@ const UpdateCategory = () => {
     try {
       await axios.put(`http://localhost:5000/categories/${id}`, category);
       navigate('/dashboard/categories');
+      //alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Categoria actulizada"
+      });
+
     } catch (error) {
-      console.error('Error al enviar la solicitud:', error);
-      console.error('Detalles de la respuesta:', error.response.data);
+      //alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "warning",
+        title: "Ha ocurrido un error"
+      });
     }
   };
 
@@ -44,7 +77,7 @@ const UpdateCategory = () => {
     <div className='categoryForm'>
         <h1 className="title">EDITAR CATEGORÍA</h1>
       <form onSubmit={handleClick} className="addCategory">
-        <input  className='input' type="text" id="name" name="name" placeholder="Nombre de la categoría" value={category.name} onChange={handleChange} />
+        <input  className='input' type="text" id="name" name="name" placeholder="Nombre de la categoría" value={category.name} onChange={handleChange} required />
         <button className='btnSubmit' type="submit">Actualizar</button>
       </form>
     </div>

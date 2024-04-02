@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/addproduct.css';
+import Swal from 'sweetalert2';
+import {
+  validateTitle,
+  validateDescription,
+  validatePrice,
+} from '../../CheckValidation';
 
 const AddProduct = () => {
   const [categories, setCategories] = useState([]);
-  const [product,setProduct] = useState({
+  const [product, setProduct] = useState({
     title: "",
     description: "",
     price: 0,
@@ -18,7 +23,7 @@ const AddProduct = () => {
       try {
         const res = await axios.get("http://localhost:5000/categories");
         setCategories(res.data);
-      } catch (error){
+      } catch (error) {
         console.error("Error al obtener las categorías", error)
       }
     };
@@ -26,8 +31,7 @@ const AddProduct = () => {
     fetchCategories();
   }, []);
 
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -39,10 +43,36 @@ const AddProduct = () => {
     }
   };
 
-  const handleClick = async e => {
-    e.preventDefault()
-    console.log("Datos del producto:", product);
-    console.log(product); 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateTitle(product.title)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Título inválido',
+      });
+      return;
+    }
+
+    if (!validateDescription(product.description)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Descripción inválida',
+      });
+      return;
+    }
+
+    if (!validatePrice(product.price)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Precio debe ser mayor a 10,000',
+      });
+      return;
+    }
+
     const formData = new FormData();
     formData.append('image', product.image);
     formData.append('title', product.title);
@@ -53,40 +83,44 @@ const AddProduct = () => {
     try {
       await axios.post("http://localhost:5000/product/createproduct", formData);
       navigate("/product");
+      Swal.fire({
+        icon: 'success',
+        title: 'Añadido correctamente!',
+      });
+      window.location.reload();
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
-      console.error("Detalles de la respuesta:", error.response.data);
-      alert(error.response.data);
+      Swal.fire({
+        icon: 'warning',
+        title: 'No se añadió el producto',
+      });
     }
-}
+  };
 
-
-  console.log(product); 
   return (
     <>
-    <div className='productForm'>
-      <h1 className='title'>Publicar Producto!</h1> 
-    <form encType="multipart/form-data" onSubmit={handleClick} className='addForm'>
-      <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} required/>
-      <textarea className='textarea' type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
-      <input  className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} required />
-      <label htmlFor='categories_id_categories' >Categorías</label>
-      <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange} required>
-        <option value="" >Elige una categoría</option>
-        {
-          categories.map(category => (
-            <option key={category.id_categories} value={category.id_categories}>{category.name}</option>
-          ))
-        }
-      </select>
+      <div className='productForm'>
+        <h1 className='title'>Publicar Producto!</h1>
+        <form encType="multipart/form-data" onSubmit={handleSubmit} className='addForm'>
+          <input className='input' type='text' id='title' name='title' placeholder='Titulo del producto' onChange={handleChange} required maxLength={40} />
+          <textarea className='textarea' type='text' id='description' name='description' placeholder='Descripción del producto' onChange={handleChange} />
+          <input className='input' type='number' id='price' name='price' step='1' placeholder='Precio del producto' onChange={handleChange} required />
+          <label htmlFor='categories_id_categories' >Categorías</label>
+          <select id='categories_id_categories' name='categories_id_categories' onChange={handleChange} required>
+            <option value="" >Elige una categoría</option>
+            {
+              categories.map(category => (
+                <option key={category.id_categories} value={category.id_categories}>{category.name}</option>
+              ))
+            }
+          </select>
           <label htmlFor='image' className='labelFile'>Imagen del producto</label>
           <input type='file' id='image' name='image' onChange={handleChange} className='fileInput' />
-      <button className='btnSumbit' type='submit' onClick={handleClick}>Agregar</button>
-
-    </form>
-    </div>
+          <button className='btnSumbit' type='submit'>Agregar</button>
+        </form>
+      </div>
     </>
   )
 }
 
-export default AddProduct
+export default AddProduct;
