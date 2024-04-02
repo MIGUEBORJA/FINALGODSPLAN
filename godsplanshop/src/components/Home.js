@@ -9,7 +9,7 @@ import { IoIosEye } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
 import HomeProduct from '../Homeproduct';
-import '../home.css'; 
+import '../styles/home.css'; 
 
 const Home = ({detail, view, close, setClose, addtocart, addtofavorite}) => {
   return (

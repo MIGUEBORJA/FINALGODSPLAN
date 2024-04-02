@@ -6,13 +6,12 @@ import { FaRegHeart } from "react-icons/fa";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { Link } from 'react-router-dom';
-import '../product.css';
+import '../styles/product.css';
 import { CartContext } from '../context/CartContext';
 import { FaRegWindowClose } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { HiPencilAlt } from "react-icons/hi";
 import Swal from 'sweetalert2'; 
-
 
 const Product = ({ detail, view, close, setClose, addtofavorite }) => {
     const [products, setProducts] = useState([]);
@@ -61,8 +60,8 @@ const Product = ({ detail, view, close, setClose, addtofavorite }) => {
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
+                window.location.reload()
             }
-            window.location.reload()
         });
         try {
             await axios.delete("http://localhost:5000/product/" + id)

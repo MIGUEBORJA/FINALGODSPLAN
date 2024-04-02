@@ -60,7 +60,7 @@ app.post("/create_preference", async (req, res) => {
             },
             transaction_amount: req.body.quantity,
             auto_return: "approved",
-            notification_url: "https://338e-186-80-28-48.ngrok-free.app/webhook"
+            notification_url: "https://2762-186-80-28-48.ngrok-free.app/webhook"
         };
 
         const preference = new Preference(client); 
@@ -151,3 +151,5 @@ app.use('/pedidos', checkoutRoutes);
 app.listen(5000, () => {
     console.log("Server on port 5000.."); 
 })
+
+export default app; 

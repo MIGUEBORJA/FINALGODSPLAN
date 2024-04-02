@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../contact.css'
+import '../styles/contact.css'
 import { validateEmail, validateSubject, validateMessage, validateName } from '../CheckValidation';
 import Swal from 'sweetalert2';
 

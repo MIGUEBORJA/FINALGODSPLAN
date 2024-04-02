@@ -25,7 +25,6 @@ export const validatePostalCode = (postalCode) => {
 export const validatePhoneNumber = (phoneNumber) => {
   return /^\d{10}$/.test(phoneNumber);
 };
-
 export const validateDocumentID = (documentID) => {
   return /^\d{8,11}$/.test(documentID);
 };

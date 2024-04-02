@@ -3,7 +3,7 @@ import { FaHeartCircleCheck } from "react-icons/fa6";
 import { FaUser, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { GiExitDoor, GiEntryDoor } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import '../nav.css';
+import '../styles/nav.css';
 import axios from 'axios';
 import isAuthenticated from '../services/auth';
 import Cookies from 'js-cookie';
@@ -48,7 +48,6 @@ const Nav = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setFilterData(data);
             })
             .catch(err => console.log(err));
     }, [cartItems]);
@@ -63,15 +62,6 @@ const Nav = () => {
                 window.location.reload(true);
             }).catch(err => console.log(err));
     }
-    const [data, setData] = useState([])
-    const [filterData, setFilterData] = useState([])
-    const handleFilter = (value) => {
-        const res = filterData.filter(f => f.title.toLowerCase().includes(value))
-        setData(res);
-        if (value === "") {
-            setData()
-        }
-    }
     return (
         <>
             <div className='all-nav'>
@@ -81,15 +71,8 @@ const Nav = () => {
                             <img className='logoimg' src='../img/logod.png' alt='logo'></img>
                         </div>
                         <div className='search_box'>
-                            <input type='text' placeholder='Busca tú producto' autoComplete='off' onChange={e => handleFilter(e.target.value)}></input>
+                            <input type='text' placeholder='Busca tú producto' autoComplete='off'></input>
                             <button><FaSearch /></button>
-                            <div className='search-result'>
-                                {data.map((d, i) => (
-                                    <div key={i}>
-                                        {d.title}
-                                    </div>
-                                ))}
-                            </div>
                         </div>
                         <div className='icon'>
                             {
