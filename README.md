@@ -1,3 +1,7 @@
+LINK Documentación: 
+https://drive.google.com/drive/folders/17bQXH37DJIdMTN77JdCXNGd-vAjj_eRT?usp=sharing
+
+
 GOD'S PLAN
 Descripción
 God´s plan es el nombre de este  proyecto formativo de la tecnología de Análisis de Desarrollo de Software, es un aplicativo web de comercio electrónico “Ecommerce” enfocado a la venta de Prendas de vestir, principalmente Camisas y Gorras dirigidas al estilo “Underground” o Callejero, el aplicativo está desarrollado bajo 2 entornos de trabajo específicos para cada área del proyecto, React (Front) y Node js (Back), como se mencionó anteriormente es un comercio electrónico, en el cual el cliente podrá explorar los productos que se ofrece en ella y realizar la compra de estos de manera segura y consultar el modo y el estado del pedido realizado.
